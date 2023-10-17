@@ -1,0 +1,21 @@
+UNIDADES DE MEDIDA
+
+	LÍNEA 1		->	El nombre del paquete debería estar completamente en minúsculas.
+	LÍNEAS 16-20	->	El nombre de las constantes deberían estar en MAYÚSCULAS.
+
+RECETAS E INGREDIENTES:
+
+	LÍNEA 1		->	El nombre del paquete debería estar completamente en minúsculas.
+	LÍNEAS 39-43	-> 	Esas variable podrían ser consideradas como constantes.
+	LÍNEA 52	->	No se redondea el precio total, mostrando demasiados decimales.
+
+HORAS DE CLASE Y ASISTENCIA
+
+	LÍNEA 1		->	El nombre del paquete debería estar completamente en minúsculas.
+	(FINAL)		-> 	En el caso de apercibimiento, la salida al usuario no está bien redactada.
+
+EVALUACIÓN
+
+	LÍNEA 1		->	El nombre del paquete debería estar completamente en minúsculas.
+
+Corrección por Óscar Fernández y por Marcos Costoya	
