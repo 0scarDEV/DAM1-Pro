@@ -1,4 +1,4 @@
-package condicionales;
+package condicionalesejercicios;
 
 public class ahorcado {
     public static void main(String[] args) {

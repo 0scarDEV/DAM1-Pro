@@ -1,4 +1,4 @@
-package paraninfo02;
+package condicionalesparaninfo;
 
 import java.util.Scanner;
 
