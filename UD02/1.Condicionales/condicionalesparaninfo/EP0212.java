@@ -3,7 +3,9 @@ package condicionalesparaninfo;
 import java.util.Scanner;
 
 public class EP0212 {
-    /* El DNI consta de un entero de 8 dígitos seguido de una letra que se obtiene a partir del número de la siguiente forma:
+    /* 
+    (Por Óscar Fernández Pastoriza)
+    El DNI consta de un entero de 8 dígitos seguido de una letra que se obtiene a partir del número de la siguiente forma:
     
             letra = numeroDNI % 23
     

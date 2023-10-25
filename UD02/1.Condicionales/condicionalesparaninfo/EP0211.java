@@ -3,7 +3,10 @@ package condicionalesparaninfo;
 import java.util.Scanner;
 
 public class EP0211 {
-    // Escribe una aplicación que solicite al usuario un número comprendido entre 0 y 9999. La aplicación tendrá que indicar si el número introducido es capicúa.
+    /* 
+     * Óscar Fernández Pastoriza
+     * Escribe una aplicación que solicite al usuario un número comprendido entre 0 y 9999. La aplicación tendrá que indicar si el número introducido es capicúa.
+    */
     public static void main(String[] args) {
         // Declaramos.
         Scanner sc = new Scanner(System.in);
