@@ -36,16 +36,14 @@ public class E0403 {
 
         // Procesos.
         switch (opcion) {
-            case 1:
+            case 1 -> {
                 area = 2 * Math.PI * radio * (altura + radio);
-                System.out.println("Área - " + area);
-                break;
-            case 2:
+                System.out.println("Área - " + area);}
+            case 2 -> {
                 volumen = Math.PI * Math.pow(radio, 2) * altura;
-                System.out.println("Volumen = " + volumen);
-                break;
-            default:
-                System.out.println("ERROR: opción incorrecta");
+                System.out.println("Volumen = " + volumen);}
+            default -> {
+                System.out.println("ERROR: opción incorrecta");}
         }
     }
 }

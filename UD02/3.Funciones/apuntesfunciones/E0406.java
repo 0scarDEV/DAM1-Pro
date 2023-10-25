@@ -25,7 +25,7 @@ public class E0406 {
             return false;
         }
 
-        // Comprobamos si el número es divisible por algún número entre dos.
+        // Comprobamos si el número es divisible por algún número mayor que dos.
         for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 return false;
