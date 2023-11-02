@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Ahorcado. Haz un programa que lea por teclado un número de fallos en el juego del ahorcado, entre 0 y 7, y que imprima un dibujo de un ahorcado más o menos completo en función del número de fallos.
  */
 
-public class ahorcado {
+public class Ahorcado {
     public static void main(String[] args) {
         // Declaraciones
         Scanner sc = new Scanner(System.in);

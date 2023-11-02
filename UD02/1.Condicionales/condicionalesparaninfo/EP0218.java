@@ -20,7 +20,7 @@ public class EP0218 {
         int valorIntroducido;
 
         System.out.println("Los números son " + (int)num1 + " y " + (int)num2);
-        System.out.println("¿Cual es el resultado de " + signo + (int)num1 + " y " + (int)num2);
+        System.out.println("¿Cual es el resultado de " + signo + (int)num1 + " y " + (int)num2 + "?");
         valorIntroducido = sc.nextInt();
         sc.close();
 
