@@ -3,7 +3,8 @@ package condicionalesparaninfo;
 import java.util.Scanner;
 
 public class EP0214 {
-    /* EP0214. Escribe un programa que solicite al usuario un número comprendido entre 1 y 99. El programa debe mostrario con letras, por ejemplo, para 56, se verá: “cincuenta y seis”.  */
+    /* Óscar Fernández Pastoriza
+     * EP0214. Escribe un programa que solicite al usuario un número comprendido entre 1 y 99. El programa debe mostrario con letras, por ejemplo, para 56, se verá: “cincuenta y seis”.  */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n;

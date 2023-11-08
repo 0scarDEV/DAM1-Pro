@@ -3,7 +3,8 @@ package condicionalesparaninfo;
 import java.util.Scanner;
 
 public class EP0216 {
-    /*EP0216. Utiliza el operador ternario para calcular el valor absoluto de un número que se solicita al usuario por teclado.*/
+    /* Óscar Fernández Pastoriza
+     * EP0216. Utiliza el operador ternario para calcular el valor absoluto de un número que se solicita al usuario por teclado.*/
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n;

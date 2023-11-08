@@ -3,7 +3,8 @@ package condicionalesparaninfo;
 import java.util.Scanner;
 
 public class EP0217 {
-    /*EP0217. Realiza el “juego de la suma”, que consiste en que aparezcan dos números aleatorios (comprendidos entre 1 y 99) que el usuario tiene que sumar. La aplicación debe indicar si el resultado de la operación es correcto o incorrecto.*/
+    /* Óscar Fernández Pastoriza
+     * EP0217. Realiza el “juego de la suma”, que consiste en que aparezcan dos números aleatorios (comprendidos entre 1 y 99) que el usuario tiene que sumar. La aplicación debe indicar si el resultado de la operación es correcto o incorrecto.*/
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double num1 = Math.random() * 100;

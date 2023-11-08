@@ -3,7 +3,8 @@ package condicionalesparaninfo;
 import java.util.Scanner;
 
 public class EP0215 {
-    /*EP0215. Escribe una aplicación que solicite por consola dos números reales que corresponden a la base y la altura de un triángulo. Deberá mostrarse su área, comprobando que los números introducidos por el usuario no son negativos, algo que no tendría sentido. */
+    /* Óscar Fernández Pastoriza
+     * EP0215. Escribe una aplicación que solicite por consola dos números reales que corresponden a la base y la altura de un triángulo. Deberá mostrarse su área, comprobando que los números introducidos por el usuario no son negativos, algo que no tendría sentido. */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double base, altura, area;
