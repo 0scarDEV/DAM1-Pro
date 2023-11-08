@@ -4,12 +4,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class IMC {
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         Scanner sc = new Scanner(System.in);
         double peso = 0, alturaM = 0;
         double alturaCm = 0;
 
-        try {   
+        try {
             System.out.print("Introduzca a continuación su altura: ");
             alturaCm = sc.nextInt();
             System.out.print("Introduzca a continuación su peso: ");
@@ -31,7 +31,7 @@ public class IMC {
                 }
             }
         }
-    
+
         sc.close();
 
         if (alturaCm >= 50 && alturaCm <= 250) {
@@ -45,7 +45,8 @@ public class IMC {
             System.out.println("La altura introducida no es correcta.");
         }
     }
-    static String imc (double altura, double peso) {
+
+    static String imc(double altura, double peso) {
         double indiceNum;
         String indice = "", resultado;
 
@@ -63,5 +64,39 @@ public class IMC {
 
         resultado = "Su IMC es de " + indiceNum + " y por lo tanto según la OMS usted " + indice;
         return resultado;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double peso = 0, alturaM = 0;
+        double alturaCm = 0;
+
+        boolean flag = true;
+
+        while (flag) {
+            try {
+                System.out.print("Introduzca a continuación su altura: ");
+                alturaCm = new Scanner(System.in).nextInt();
+                System.out.print("Introduzca a continuación su peso: ");
+                peso = new Scanner(System.in).nextInt();
+
+                flag = false;
+            } catch (InputMismatchException e) {
+                System.out.println("ERROR, INTÉNTELO DE NUEVO");
+            }
+        }
+
+        sc.close();
+
+        if (alturaCm >= 50 && alturaCm <= 250) {
+            alturaM = alturaCm / 100;
+            if (peso >= 20 && peso <= 300) {
+                System.out.println(imc(alturaM, peso));
+            } else {
+                System.out.println("El peso introducido no es correcto.");
+            }
+        } else {
+            System.out.println("La altura introducida no es correcta.");
+        }
     }
 }
