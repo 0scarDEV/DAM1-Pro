@@ -87,6 +87,7 @@ public class Supermercado {
         Scanner sc = new Scanner(System.in);
         double introducido = sc.nextDouble();
         double devolver = introducido - precioTotal;
+        int billetes = 0, monedas = 0, centimos = 0;
         while (devolver > 0) {
             if (devolver >= 5) {
                 billetes++;
@@ -94,10 +95,10 @@ public class Supermercado {
             } else if (devolver < 5 && devolver >= 1) {
                 monedas++;
                 devolver = devolver - 1;
-            } else if (devolver < 5 && devolver >= 1) {
-                monedas++;
-                devolver = devolver - 1;
+            } else if (devolver < 1 && devolver > 0.00) {
+                centimos++;
+                devolver = devolver - 0.01;
             }
-            }
+        }
     }
 }
