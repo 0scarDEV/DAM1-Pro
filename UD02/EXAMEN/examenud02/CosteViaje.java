@@ -1,4 +1,7 @@
 package examenud02;
+
+import java.util.Scanner;
+
 /* Óscar Fernández Pastoriza */
 public class CosteViaje {
     /*  
@@ -9,26 +12,26 @@ public class CosteViaje {
         ● Electricidad, kWh: 0.1692 € / kWh
     */
     static double costeViaje(double km, byte tipoCombustible, double consumoMedio) {
-        double coste = 0.0;
-        final double precioGasolina = 1.638, precioDiesel = 1.638, precioElectricidad = 0.1692;
+        double coste = 0.0, consumo = km * consumoMedio / 100;
+        final double PRECIO_GASOLINA = 1.638, PRECIO_DIESEL = 1.638, PRECIO_ELECTICIDAD = 0.1692;
 
         switch (tipoCombustible) {
             case 0 -> {
-                coste = precioGasolina * km * consumoMedio;
+                coste = PRECIO_GASOLINA * consumo;
             }
             case 1 -> {
-                coste = precioDiesel * km * consumoMedio;
+                coste = PRECIO_DIESEL * consumo;
             }
             case 2 -> {
-                coste = precioElectricidad * km * consumoMedio;
+                coste = PRECIO_ELECTICIDAD * consumo;
             }
         }
         return coste;
     }
     
     /* "PROGRAMA" COMPLETO.
-     *import java.util.Scanner;
-     *public static void main(String[] args) {
+     *import java.util.Scanner; 
+     public static void main(String[] args) {
         double km, consumoMedio;
         byte tipoCombustible;
     
@@ -44,6 +47,5 @@ public class CosteViaje {
         consumoMedio = new Scanner(System.in).nextDouble();
     
         System.out.println("Su viaje tendrá un coste de " + costeViaje(km, tipoCombustible, consumoMedio) + " euros.");
-    }
-     */
+    }*/
 }

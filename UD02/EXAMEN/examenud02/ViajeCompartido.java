@@ -21,7 +21,7 @@ public class ViajeCompartido {
         int plazas = 0;
         double km = 0, consumoMedio, precioPorPlaza = 0, precioPorKm = 0, ingresos;
         byte tipoCombustible;
-        boolean flagPlazas = true, flagKm = true, flagPrecioPorPlaza = true;
+        boolean flagPlazas = true, flagKm = true, flagPrecioPorPlaza = true, flagPrecioPorKm = true;
 
         // Entrada de datos
         System.out.print("Introduzca a continuación la localidad de origen del trayecto: ");
@@ -58,8 +58,7 @@ public class ViajeCompartido {
                 flagKm = false;
             }
         }
-        System.out.print(
-                "Para \"0\" - Gasolina, \"1\" - Diésel y \"2\" - Eléctrico. Introduzca a continuación el tipo de combustible usado por el coche: ");
+        System.out.print("Para \"0\" - Gasolina, \"1\" - Diésel y \"2\" - Eléctrico. Introduzca a continuación el tipo de combustible usado por el coche: ");
         tipoCombustible = new Scanner(System.in).nextByte();
 
         System.out.print("Introduzca a continuación el consumo medio del coche: ");
@@ -69,36 +68,43 @@ public class ViajeCompartido {
                 "El trayecto entre " + origen + " y " + destino + " es " + costeViaje(km, tipoCombustible, consumoMedio) + " euros."
             );
         
-        while (flagPrecioPorPlaza) {
-            System.out.print("Introduzca a continuación el precio deberán abonar los pasajeros: ");
-            precioPorPlaza = new Scanner(System.in).nextDouble();
-
-            precioPorKm = precioPorPlaza / km;
-
-            if (precioPorKm < 0.00 || precioPorKm > 0.05) {
-                System.out.println(
-                            "Precio por kilómetro introducido no válido. Debe introducir una precio que se entre 0.00 y 0.05 euros por kilómetro.");
-            } else {
-                flagPrecioPorPlaza = false;
+            while (flagPrecioPorPlaza) {
+                try {
+                    System.out.print("Introduzca a continuación el precio deberán abonar los pasajeros (X,XX): ");
+                    precioPorPlaza = new Scanner(System.in).nextDouble();
+                    flagPrecioPorPlaza = false;
+                } catch (InputMismatchException c) {
+                    System.out.println(
+                            "Has introducido un valor no válido, el valor introducido debe ser un número, en caso de introducir decimales debe ser separado con una coma (\",\").");
+                }
             }
-        }
+            while (flagPrecioPorKm) {
+                precioPorKm = precioPorPlaza / km;
+                if (precioPorKm < 0.00 || precioPorKm > 0.05) {
+                    System.out.println(
+                            "Precio por kilómetro introducido no válido. Debe introducir una precio que se entre 0.00 y 0.05 euros por kilómetro.");
+                } else {
+                    flagPrecioPorKm = false;
+                }
+            }
+
         ingresos = precioPorPlaza * plazas;
         System.out.println("Ingresará " + ingresos + " euros por el viaje desde " + origen + " hasta " + destino + ".");
     }
     
     static double costeViaje(double km, byte tipoCombustible, double consumoMedio) {
-        double coste = 0.0;
-        final double precioGasolina = 1.638, precioDiesel = 1.638, precioElectricidad = 0.1692;
+        double coste = 0.0, consumo = km * consumoMedio / 100;
+        final double PRECIO_GASOLINA = 1.638, PRECIO_DIESEL = 1.638, PRECIO_ELECTICIDAD = 0.1692;
 
         switch (tipoCombustible) {
             case 0 -> {
-                coste = precioGasolina * km * consumoMedio;
+                coste = PRECIO_GASOLINA * consumo;
             }
             case 1 -> {
-                coste = precioDiesel * km * consumoMedio;
+                coste = PRECIO_DIESEL * consumo;
             }
             case 2 -> {
-                coste = precioElectricidad * km * consumoMedio;
+                coste = PRECIO_ELECTICIDAD * consumo;
             }
         }
         return coste;

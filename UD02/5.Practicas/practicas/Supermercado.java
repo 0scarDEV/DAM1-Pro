@@ -100,5 +100,6 @@ public class Supermercado {
                 devolver = devolver - 0.01;
             }
         }
+        sc.close();
     }
 }
