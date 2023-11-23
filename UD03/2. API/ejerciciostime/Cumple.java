@@ -2,7 +2,6 @@ package ejerciciostime;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Locale;
 import java.util.Scanner;
 
 /* Óscar Fernández Pastoriza
@@ -19,7 +18,6 @@ public class Cumple {
         int mesCumpleanhos = sc.nextInt();
         int diaCumpleanhos = sc.nextInt();
         sc.close();
-
         LocalDate fechaCumpleanhos = LocalDate.of(LocalDate.now().getYear(), mesCumpleanhos, diaCumpleanhos);
         LocalDate fechaActual = LocalDate.now();
 
@@ -42,6 +40,7 @@ public class Cumple {
         int faltanMinutos = (faltanHoras * 60) - minutoActual;
 
         System.out.println("Hoy es " + LocalDate.now().getYear() + "-" + mesActual + "-" + diaActual + " y son las " + horaActual + ":"  + minutoActual);
+        System.out.println("Naciste el " + diaCumpleanhos + " de " + mesCumpleanhos + " del " + anhoCumpleanhos);
         System.out.println("Hasta tu próximo cumpleaños quedan " + faltanMeses + " meses.");
         System.out.println("Hasta tu próximo cumpleaños quedan " + faltanDias + " días.");
         System.out.println("Hasta tu próximo cumpleaños quedan " + faltanHoras + " horas.");
