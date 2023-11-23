@@ -1,5 +1,4 @@
 package ejerciciosmath;
-
 import java.util.Scanner;
 
 /* Óscar Fernández Pastoriza
