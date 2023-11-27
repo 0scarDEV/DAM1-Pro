@@ -58,12 +58,12 @@ public class PuntoGeografico {
         int gradoLatitud = (int) this.latitud;
         int minutoLatitud = (int) (this.latitud * 100.0) % 100;
         int segundoLatitud = (int) (minutoLatitud * 100.0) % 100;
-        System.out.println("La latitud es: " + gradoLatitud + "º " + minutoLatitud + "\' " + segundoLatitud + "\" .");
+        System.out.println("La latitud es: " + gradoLatitud + "º " + minutoLatitud + "\" " + segundoLatitud + "\" .");
 
         int gradoLongitud = (int) this.longitud;
         int minutoLongitud = (int) (this.longitud * 100.0) % 100;
         int segundoLongitud = (int) (minutoLongitud * 100.0) % 100;
-        System.out.println("La longitud es: " + gradoLongitud + "º " + minutoLongitud + "\' " + segundoLongitud + "\" .");
+        System.out.println("La longitud es: " + gradoLongitud + "º " + minutoLongitud + "\" " + segundoLongitud + "\" .");
     }
     public PuntoGeografico generarAleatorio() {
         Random random = new Random();
@@ -74,20 +74,15 @@ public class PuntoGeografico {
         return new PuntoGeografico(latitudAleatoria, longitudAleatoria);
     }
     public String urlGoogleMaps(){
-        String url = "https://www.google.es/maps/@" + this.latitud + "," + this.longitud + ",12z";
-        return url;
+        return "https://www.google.es/maps/@" + this.latitud + "," + this.longitud + ",12z";
     }
     public String urlOpenStreetMaps(){
-        String url = "https://www.openstreetmap.org/#map=14/" + this.latitud + "/" + this.longitud;
-        return url;
-    }
+        return "https://www.openstreetmap.org/#map=14/" + this.latitud + "/" + this.longitud; }
     public String urlNominatimXml() {
-        String url = "https://nominatim.openstreetmap.org/reverse?format=xml&lat=" + latitud + "&lon=" + longitud + "&zoom=14";
-        return url;
+        return "https://nominatim.openstreetmap.org/reverse?format=xml&lat=" + latitud + "&lon=" + longitud + "&zoom=14";
     }
     public String urlNominatimJson() {
-        String url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + latitud + "&lon=" + longitud;
-        return url;
+        return "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + latitud + "&lon=" + longitud;
     }
 
     public static void main(String[] args) {

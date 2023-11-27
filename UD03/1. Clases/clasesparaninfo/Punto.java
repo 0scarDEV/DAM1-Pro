@@ -10,5 +10,31 @@ package clasesparaninfo;
     void muestra(): muestra por consola la información relativa al punto. Ejemplo: (1.5, 4.6)
  */
 public class Punto {
-    
+    double x, y;
+
+    Punto(double x, double y) {
+         this.x = x;
+         this.y = y;
+    }
+
+    void desplazaX(double dx) {
+        this.x = this.x + dx;
+    }
+
+    void desplazaY(double dy) {
+        this.y = this.y + dy;
+    }
+
+    void desplaza(double dx, double dy) {
+        desplazaX(dx);
+        desplazaY(dy);
+    }
+
+    double distanciaEuclidea(Punto otro) {
+        return Math.sqrt(Math.pow((otro.x - this.x), 2) + Math.pow((otro.y - this.y), 2));
+    }
+
+    void muestra(){
+        System.out.println(this.x + ", " + this.y);
+    }
 }
