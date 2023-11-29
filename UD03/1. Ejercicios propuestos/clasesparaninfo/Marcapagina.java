@@ -12,8 +12,7 @@ public class Marcapagina {
         pagina = pagina + incremento;
     }
     public int infoLastPage(){
-        int lastPage = pagina;
-        return lastPage;
+        return pagina;
     }
     public void newLectura() {
         this.pagina = 1;

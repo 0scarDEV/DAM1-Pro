@@ -1,6 +1,7 @@
 package ejerciciostime;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Scanner;
 /* Óscar Fernández Pastoriza
  * Cronometro. 
@@ -14,16 +15,17 @@ public class Cronometro {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String tecla;
-        LocalDateTime ultVezEnter = LocalDateTime.now(), inicio, ahora;
+        LocalDateTime ultVezEnter, inicio, ahora;
         boolean flag = false;
 
         System.out.println("Presiona un ENTER para comenzar a cronometrar. Recuerda que para terminar la cuenta del cronómetro debes introducir un 0.");
         tecla = sc.nextLine();
         inicio = LocalDateTime.now();
+        ultVezEnter = LocalDateTime.now();
         do {
             tecla = sc.nextLine();
             ahora = LocalDateTime.now();
-            if (tecla == "") {
+            if (tecla.isEmpty()) {
                 Duration desdeInicio = Duration.between(inicio, ahora);
                 long secTranscurridosDesdeInicio = desdeInicio.getSeconds();
                 long minutosDesdeInicio = secTranscurridosDesdeInicio / 60;
@@ -41,7 +43,7 @@ public class Cronometro {
             if (tecla.equals("0")) {
                 flag = true;
             }
-        } while (flag == false);
+        } while (!flag);
         sc.close();
     }
 }
