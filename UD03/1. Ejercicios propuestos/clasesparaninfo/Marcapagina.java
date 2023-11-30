@@ -4,15 +4,14 @@ package clasesparaninfo;
  */
 public class Marcapagina {
     int pagina = 1;
-
     public void incrementarPag() {
         pagina = pagina + 1;
     }
     public void incrementarPag(int incremento) {
         pagina = pagina + incremento;
     }
-    public int infoLastPage(){
-        return pagina;
+    public int LastPage(){
+        return (pagina - 1);
     }
     public void newLectura() {
         this.pagina = 1;
@@ -30,7 +29,7 @@ public class Marcapagina {
         mp1.incrementarPag(6);
         System.out.println("Ahora el marcapáginas señala la página " + mp1.pagina);
 
-        System.out.println("La última página leída es la " + mp1.infoLastPage());
+        System.out.println("La última página leída es la " + mp1.LastPage());
 
         System.out.println("Ahora releeremos el libro.");
         mp1.newLectura();

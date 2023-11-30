@@ -2,10 +2,14 @@ package pruebas;
 
 public class Persona {
 
+	public class Ropa {
+		static String torso = "sudadera";
+	}
     // Atributos
     String nombre;
     byte edad = 25; //Asignando un valor se asigna por defecto.
     double estatura; //(en metros)
+	Ropa torso = "jersey";
 
     final String dni = "";
 
@@ -38,9 +42,10 @@ public class Persona {
         p1.nombre = "Oscar";
         System.out.println(p1.nombre);
         System.out.println(p1.edad);
-
+		int num = 4;
         Persona p = new Persona("Yoel", (byte)35);
         System.out.println(p.nombre);
         System.out.println(p.edad);
+		sout(p.torso);
     }
 }
