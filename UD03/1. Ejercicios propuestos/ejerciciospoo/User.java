@@ -4,25 +4,26 @@ public class User {
     private String email, username, password;
     private LocalDateTime createdAt, lastLogin;
     private boolean enabled;
-    public User(String email, String username, String password, boolean enabled) {
-        this.email = email;
+    public User(String username, String password, String email, boolean enabled) {
         this.username = username;
         this.password = password;
+        this.email = email;
         this.enabled = enabled;
         this.createdAt = LocalDateTime.now();
     }
     public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-        this.enabled = true;
-        this.createdAt = LocalDateTime.now();
-        this.email = null;
+        this(username, password, null, true);
     }
     public User(String username) {
-        this.username = username;
-        this.password = null;
-        this.enabled = true;
-        this.createdAt = LocalDateTime.now();
-        this.email = null;
+        this(username, null, null, true);
+    }
+
+    @Override public String toString() {
+        return username;
+    }
+
+    public static void main(String[] args) {
+        User user1 = new User("ofernpast");
+        System.out.println(user1);
     }
 }
