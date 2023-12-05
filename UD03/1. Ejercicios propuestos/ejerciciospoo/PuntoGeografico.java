@@ -17,6 +17,7 @@ import java.util.Random;
  */
 public class PuntoGeografico {
     // Variables
+    private String nombre;
     private double latitud;
     private double longitud;
     // Constructores
@@ -31,6 +32,10 @@ public class PuntoGeografico {
         } catch (IllegalArgumentException l){
             throw l;
         }
+    }
+    public PuntoGeografico(String nombre, double latitud, double longitud){
+        this(latitud, longitud);
+        this.nombre = nombre;
     }
     // Getters y setters
     public double getLatitud() {return latitud;}
@@ -51,10 +56,12 @@ public class PuntoGeografico {
     }
     // Métodos
     public void mostrarGradosDecimales() {
+        System.out.println("La etiqueta de este PuntoGeografico es: " + nombre);
         System.out.println("La latitud de las coordenadas actuales es: " + latitud);
         System.out.println("La longitud de las coordenadas actuales es: " + longitud);
     }
     public void mostrarFormatoDNS() {
+        System.out.println("La etiqueta de este PuntoGeografico es: " + nombre);
         int gradoLatitud = (int) this.latitud;
         int minutoLatitud = (int) (this.latitud * 100.0) % 100;
         int segundoLatitud = (int) (minutoLatitud * 100.0) % 100;
@@ -65,7 +72,7 @@ public class PuntoGeografico {
         int segundoLongitud = (int) (minutoLongitud * 100.0) % 100;
         System.out.println("La longitud es: " + gradoLongitud + "º " + minutoLongitud + "\" " + segundoLongitud + "\" .");
     }
-    public PuntoGeografico generarAleatorio() {
+    public static PuntoGeografico generarAleatorio() {
         Random random = new Random();
         
         double latitudAleatoria = -90 + (90 - (-90)) * random.nextDouble();
@@ -87,7 +94,8 @@ public class PuntoGeografico {
 
     public static void main(String[] args) {
         PuntoGeografico pg1 = new PuntoGeografico(42.3716382, -8.6897279);
-        PuntoGeografico pg2 = new PuntoGeografico().generarAleatorio();
+        new PuntoGeografico();
+        PuntoGeografico pg2 = generarAleatorio();
         pg1.mostrarGradosDecimales();
         System.out.println(pg2.urlGoogleMaps());
         System.out.println(pg2.urlOpenStreetMaps());

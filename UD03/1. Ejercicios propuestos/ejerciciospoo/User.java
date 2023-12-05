@@ -18,6 +18,10 @@ public class User {
         this(username, null, null, true);
     }
 
+    public String getUsername(){
+        return username;
+    }
+
     @Override public String toString() {
         return username;
     }
