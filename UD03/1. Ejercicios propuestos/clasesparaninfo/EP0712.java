@@ -26,9 +26,11 @@ public class EP0712 {
     }
     
     public void verSoluciones() {
-        this.solucion1 = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
-        this.solucion2 = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
-        System.out.println(solucion1 + " " + solucion2);
+        if (discriminantePositivo() == true) {
+            this.solucion1 = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
+            this.solucion2 = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
+            System.out.println(solucion1 + " " + solucion2);
+        }
     }
 
     public boolean discriminantePositivo() {
@@ -39,11 +41,9 @@ public class EP0712 {
         }
         return esDiscriminantePositivo;
     }
-    
-    
-    public class Solucion {public Solucion(double solucion1, double solucion2) {}}
     public static void main(String[] args) {
-        EP0712 raizcuadrada = new EP0712(6, 10, -1);
+        EP0712 raizcuadrada = new EP0712(30, 1, 40);
+        raizcuadrada.verSoluciones();
         System.out.println(raizcuadrada.discriminantePositivo());
     }
 }
