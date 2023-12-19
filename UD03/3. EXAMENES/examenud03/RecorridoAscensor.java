@@ -40,4 +40,11 @@ public class RecorridoAscensor {
         // Mostramos por pantalla el número total de pisos recorridos.
         System.out.println(pisosRecorridos);
     }
+
+    public static int moverAscensor(int pisoObjetivo, Ascensor ascensor)
+    {
+        int pisosRecorridos = Math.abs(pisoObjetivo - ascensor.getPisoActual());
+        ascensor.irAlPiso(pisoObjetivo);
+        return pisoObjetivo;
+    }
 }

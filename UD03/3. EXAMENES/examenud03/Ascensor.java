@@ -5,13 +5,12 @@ public class Ascensor {
     public final int PLANTA_MAS_BAJA, PLANTA_MAS_ALTA;
 
     public Ascensor(int pisoActual, int PLANTA_MAS_BAJA, int PLANTA_MAS_ALTA) {
-        setPisoActual(pisoActual);
         if (PLANTA_MAS_BAJA >= PLANTA_MAS_ALTA || (pisoActual > PLANTA_MAS_ALTA || pisoActual < PLANTA_MAS_BAJA)) {
             throw new IllegalArgumentException("ERROR. La planta más baja es mayor que la planta más alta o el piso actual no se encuentra entre ellas.");
-        } else {
-            this.PLANTA_MAS_BAJA = PLANTA_MAS_BAJA;
-            this.PLANTA_MAS_ALTA = PLANTA_MAS_ALTA;
         }
+        this.PLANTA_MAS_BAJA = PLANTA_MAS_BAJA;
+        this.PLANTA_MAS_ALTA = PLANTA_MAS_ALTA;
+        setPisoActual(pisoActual);
     }
 
     public Ascensor( int PLANTA_MAS_BAJA, int PLANTA_MAS_ALTA) {
@@ -20,7 +19,7 @@ public class Ascensor {
 
     public Ascensor() {
         this.PLANTA_MAS_BAJA = -2;
-        setPisoActual(this.PLANTA_MAS_BAJA);
+        setPisoActual(0);
         this.PLANTA_MAS_ALTA = 9;
     }
 
@@ -31,9 +30,9 @@ public class Ascensor {
     public void setPisoActual(int pisoActual) {
         if (pisoActual > PLANTA_MAS_ALTA || pisoActual < PLANTA_MAS_BAJA) {
             throw new IllegalArgumentException("ERROR. De llevar a cabo la operación el ascensor saldría del rango de pisos.");
-        } else {
-            this.pisoActual = pisoActual;
         }
+
+        this.pisoActual = pisoActual;
     }
 
     public boolean subir(){
@@ -44,12 +43,7 @@ public class Ascensor {
     }
 
     public boolean subirN(int n){
-        if ((pisoActual + n) > PLANTA_MAS_ALTA) {
-            return false;
-        } else {
-            this.pisoActual = this.pisoActual + n;
-            return true;
-        }
+        return irAlPiso(pisoActual + n);
     }
     public boolean bajarN(int n){
         if ((pisoActual - n) < PLANTA_MAS_BAJA) {
