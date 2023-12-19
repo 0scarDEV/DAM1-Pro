@@ -55,6 +55,14 @@ public class ClaseArrays {
         // Existe el método binarySearch(array, posMin, posMax, clave) sobrecargado de la clase java.uti.Arrays, devuelve la posición de la clave indicada si se encuentra dentro del rango.
         System.out.println("BinarySearch SobreCargado");
         System.out.println(Arrays.binarySearch(numeros, 5, 10, 25));
+
+        // Existe el método copyOf(array, newLength) que sirve para replicar un array.
+        int[] t = new int[10];
+        for (int i = 0; i < t.length; i++) {
+            t[i] = (int) (Math.random() * 19 - 9);
+        }
+        int[] tMayor = Arrays.copyOf(t, 20);
+        int[] tMenor = Arrays.copyOf(t, 5);
     }
     static int[] rellenaPares(int longitud, int fin) {
         int[] t = new int[longitud];

@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/UD03/3. EXAMENES" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD04/0. Apuntes" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/UD04/4. EXAMEN" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
