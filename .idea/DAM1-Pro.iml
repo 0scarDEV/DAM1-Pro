@@ -13,6 +13,12 @@
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/UD04/4. EXAMEN" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD04/1. Ejercicios Propuestos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD02/1.Condicionales" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD02/2.Bucles" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD02/3.Funciones" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD02/4.Excepciones" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD02/5.Practicas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD02/EXAMEN" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -12,17 +12,15 @@ public class EP0512 {
 
     }
     static int[] desordenar(int[] t) {
-        int[] t2, aleatorizar, aleatorio = new int[0];
-        for (int i = 0; i < 5; i++) {
-            t2 = Arrays.copyOf(t, t.length); // Generamos una copia del array original para aleatorizar.
-            aleatorizar = generarNumerosUnicos(t.length, t.length); // Generamos una lista de posiciones aleatorias en las que añadir los números de t2.
-            aleatorio = new int[t.length];
-            for (int j = 0; j < (t.length - 1); j++) {  // Recorremos uno a uno los elementos de la tabla ALEATORIZAR y al valor que se corresponde con esa posición de T2, se la asignamos en la nueva tabla ALEATORIO
-                aleatorio[aleatorizar[j]] = t2[j];
-            }
+        int[] numUnicos, aleatorio = new int[t.length];
+        numUnicos = generarNumerosUnicos(t.length, t.length); // Generamos una lista de posiciones aleatorias en las que añadir los números de t2.
+
+        for (var i = 0; i < numUnicos.length; i++){
+            aleatorio[i] = t[numUnicos[i] - 1];
         }
         return aleatorio;
     }
+
     // Generamos un array de números únicos para reordenar los valores del array.
     private static int[] generarNumerosUnicos(int cantidadNumeros, int rangoNumeros) {
         if (cantidadNumeros > rangoNumeros) {
