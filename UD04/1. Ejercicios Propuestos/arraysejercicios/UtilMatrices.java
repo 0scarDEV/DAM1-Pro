@@ -1,5 +1,4 @@
 package arraysejercicios;
-
 import java.util.Arrays;
 
 public class UtilMatrices {

@@ -19,8 +19,10 @@ public class EjArrays01 {
             t1[i - 1] = entrada;
         } while(entrada != -1);
 
-        int media = sumatorio / t1.length;
+        int media = sumatorio / (t1.length - 1);
 
         System.out.println(media);
+
+        sc.close();
     }
 }
