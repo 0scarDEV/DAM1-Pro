@@ -1,6 +1,6 @@
 package arraysejercicios;
 import java.util.Arrays;
-
+/* Óscar Fernández Pastoriza */
 public class UtilMatrices {
     public static Boolean esMatrizValida(int[][] t){
         return t != null && t.length > 0 && t[0].length > 0;

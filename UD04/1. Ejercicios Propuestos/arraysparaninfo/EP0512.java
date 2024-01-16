@@ -3,7 +3,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-/*EP0512. Escribe la función void desordenar(int t[]), que cambia de forma aleatoria los elementos contenidos en la tabla t. Si la tabla estuviera ordenada, dejaría de estarlo.*/
+/* Óscar Fernández Pastoriza
+ * EP0512. Escribe la función void desordenar(int t[]), que cambia de forma aleatoria los elementos contenidos en la tabla t. Si la tabla estuviera ordenada, dejaría de estarlo.*/
 public class EP0512 {
     public static void main(String[] args) {
 

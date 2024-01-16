@@ -1,6 +1,6 @@
 package arraysparaninfo;
 import java.util.Arrays;
-/*
+/* Óscar Fernández Pastoriza
     EP0520. La fusión de dos tablas ordenadas consiste en copiar todos sus elementos (de ambas tablas) en una tercera que deberá seguir ordenada. Podemos realizar una fusión ineficiente copiando los elementos de ambas tablas (sin tener en cuenta el orden) en la tabla final y ordenar esta.
     Existe una manera óptima de realizar la fusión en la que se elige en cada momento el primer elemento no copiado de alguna de las tablas y se añade a la tabla final, que seguirá ordenada sin necesidad de ordenación alguna. Busca información sobre el algoritmo de fusión e impleméntalo en Java.
  */

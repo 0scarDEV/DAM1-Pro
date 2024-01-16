@@ -2,7 +2,8 @@ package arraysparaninfo;
 
 import java.util.Arrays;
 
-/*EP0511.  Realiza la función: int[] buscarTodos(int t[], int clave), que crea y devuelve una tabla con todos los índices de los elementos donde se encuentra la clave de búsqueda. En el caso de que clave no se encuentre en la tabla t, la función devolverá una tabla vacía.*/
+/* Óscar Fernández Pastoriza
+ * EP0511.  Realiza la función: int[] buscarTodos(int t[], int clave), que crea y devuelve una tabla con todos los índices de los elementos donde se encuentra la clave de búsqueda. En el caso de que clave no se encuentre en la tabla t, la función devolverá una tabla vacía.*/
 public class EP0511 {
     public static int[] buscarTodos(int[] t, int clave) {
         int[] t2 = new int[0];
