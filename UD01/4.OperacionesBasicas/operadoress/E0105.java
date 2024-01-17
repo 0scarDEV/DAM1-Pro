@@ -1,4 +1,4 @@
-package operadores;
+package operadoress;
 
 public class E0105 {
     public static void main(String[] args) {

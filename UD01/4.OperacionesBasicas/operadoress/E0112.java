@@ -1,16 +1,18 @@
-package operadores;
+package operadoress;
+
 import java.util.Scanner;
 
-public class E0109 {
+public class E0112 {
     public static void main(String[] args) {
-        long numeroEntero;
-        System.out.print("Introduce a continuación un número entero: ");
         Scanner sc = new Scanner(System.in);
-        numeroEntero = sc.nextLong();
-        
-        boolean par = numeroEntero % 2 == 0;
+        long numeroEntero;
 
-        System.out.println("¿El número introducido (" + numeroEntero + ") es par? " + par);
+        System.out.print("Introduce a continuación un número entero: ");
+        numeroEntero = sc.nextLong();
+
+        long numeroAbsoluto = Math.abs(numeroEntero);
+
+        System.out.println("El número absoluto de " + numeroEntero + " es " + numeroAbsoluto);
         sc.close();
     }
 }

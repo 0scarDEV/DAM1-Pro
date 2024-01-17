@@ -11,8 +11,8 @@ public class EP0515 {
 
         System.out.println("Introduce ");
         // Recolectamos las notas
-        for (int i = 0; i < notas.length; i++){ // Notas
-            for (int j = 0; j < notas[0].length; j++) { // Alumnos
+        for (int i = 0; i < notas.length; i++){
+            for (int j = 0; j < notas[0].length; j++) {
                 notas[i][j] = new Scanner(System.in).nextInt();
             }
         }
