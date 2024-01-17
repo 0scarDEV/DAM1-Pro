@@ -21,10 +21,11 @@ public class EP0519 {
         ranking = dopados(ranking);
 
         System.out.println(Arrays.toString(ranking));
-        /*
+
         System.out.println("Introduce los dorsales de los participantes que no hayan abonado su inscripción. Para finalizar introduce -1.");
         ranking = noInscritos(ranking);
- */
+
+        System.out.println(Arrays.toString(ranking));
     }
     private static int[] introducirDatos() {
         int[] t = new int[0];
@@ -41,8 +42,7 @@ public class EP0519 {
     private static int[] menoresEdad(int[] t) {
         int[] menoresEdad = introducirDatos();
         for (int i = 0; i < menoresEdad.length; i++) {
-            int pos = Arrays.binarySearch(t, Arrays.toString(t).indexOf(menoresEdad[i]));
-
+            int pos = encontrarPosicion(t, menoresEdad[i]);
             if (pos == -1) {
                 System.out.println("No se encuentra el dorsal " + t[i]);
             } else {
@@ -50,23 +50,16 @@ public class EP0519 {
                 t[pos] = t[pos-1];
                 t[pos-1] = aux;
             }
-
-            /*
-            int temp = t[i];
-            t[i] = t[indiceAleatorio];
-            t[indiceAleatorio] = temp;
-            */
         }
         return t;
     }
 
     private static int[] dopados(int[] t) {
         int[] dopados = introducirDatos();
-        int[] listadoAux = null;
+        int[] listadoAux = t;
 
-        for (int i = 0; i < t.length; i++) {
-            String prubea = t;
-            int pos = prubea.indexOf(dopados[i-1]);
+        for (int i = 0; i <= dopados.length - 1; i++) {
+            int pos = encontrarPosicion(t, dopados[i]);
             if (pos == -1) {
                 System.out.println("No se encuentra el dorsal " + t[i+1]);
             } else {
@@ -76,11 +69,34 @@ public class EP0519 {
         }
         return listadoAux;
     }
+    private static int encontrarPosicion(int[] array, int numero) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == numero) {
+                return i; // Se ha encontrado el número, devuelve la posición
+            }
+        }
+        return -1; // El número no se encontró en el array
+    }
+    private static String arrayToString(int[] t) {
+        String string = "";
+        for (int i = 0; i < t.length; i++) {
+            string += t[i];
+        }
+        return string;
+    }
 
-    /*
     private static int[] noInscritos(int[] t) {
         int[] noInscritos = introducirDatos();
-        return listaMod;
+        int j = 0;
+        for (int i = 0; i < noInscritos.length; i++) {
+            int pos = encontrarPosicion(t, noInscritos[i]);
+            if (pos == -1) {
+                System.out.println("No se encuentra el dorsal " + t[i]);
+            } else {
+                j++;
+                System.arraycopy(t, pos, t, t.length - j, t.length - pos - 1);
+            }
+        }
+        return t;
     }
-    */
 }
