@@ -5,7 +5,7 @@ public class UtilMatrices {
         return t != null && t.length > 0 && t[0].length > 0;
     }
     public static Boolean esCuadrada(int[][] t){
-        Boolean res = null;
+        boolean res = false;
         if (esMatrizValida(t)) {
             res = t.length == t[0].length;
         }
