@@ -12,7 +12,7 @@ public class E0507 {
         int[] t = tablaRandom(10);
         System.out.println(Arrays.toString(t));
 
-        int[] t2 = sinRepetidos(t);
+        int[] t2 = eliminarNumerosRepetidos(t);
         System.out.println(Arrays.toString(t2));
     }
 
@@ -25,23 +25,29 @@ public class E0507 {
         return t;
     }
 
-    // esto no vaaaaaaa
-    static int[] sinRepetidos(int[] t) {
-        int numRepetidos = 0;
-        int numeroRepetidos = numRepetidos - 1;
-        for (int i = 0; i < t.length; i++) {                    // Recorremos todas las posiciones
-            for (int j = 0; j < t.length; j++) {            // Recorremos todas las posiciones
-                if (t[i] == t[j]) {                         // Comprobamos si un número es repetido
-                    numRepetidos++;
-                    int ultNumSinRepetir = t.length - numeroRepetidos;
-                    // Intercambiamos la posición del valor repetido con el último número no repetido.
-                    int x = ultNumSinRepetir;
-                    ultNumSinRepetir = t[i];
-                    t[i] = x;
+    public static int[] eliminarNumerosRepetidos(int[] array) {
+        int longitudOriginal = array.length;
+        int[] arraySinRepetidos = new int[longitudOriginal];
+        int contador = 0;
+
+        for (int i = 0; i < longitudOriginal; i++) {
+            boolean esRepetido = false;
+            for (int j = 0; j < contador; j++) {
+                if (array[i] == arraySinRepetidos[j]) {
+                    esRepetido = true;
+                    break;
                 }
             }
+
+            if (!esRepetido) {
+                arraySinRepetidos[contador] = array[i];
+                contador++;
+            }
         }
-        int[] nuevaTabla = Arrays.copyOf(t, t.length - numRepetidos);
-        return nuevaTabla;
+
+        // Redimensionar el array resultante
+        arraySinRepetidos = Arrays.copyOf(arraySinRepetidos, contador);
+
+        return arraySinRepetidos;
     }
 }

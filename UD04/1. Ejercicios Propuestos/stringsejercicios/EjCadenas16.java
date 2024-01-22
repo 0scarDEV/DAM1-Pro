@@ -1,5 +1,6 @@
 package stringsejercicios;
-
+/* Óscar Fernández Pastoriza
+EjCadenas16. Crea una función que reemplace cada letra de una cadena de caracteres por la letra que le sigue en el alfabeto.  */
 public class EjCadenas16 {
     public static void main(String[] args) {
         System.out.println(reemplazarAlfabetico("no se"));
