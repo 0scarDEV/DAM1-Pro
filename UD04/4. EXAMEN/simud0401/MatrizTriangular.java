@@ -19,7 +19,7 @@ public class MatrizTriangular {
             for(int i = 0 ; i < t.length; i++){
                 for(int j = 0; j < i; j++) {
                     // if (t[i][j])
-                    Arrays.copyOf(trianguloInferior, trianguloInferior.length + 1);
+                    trianguloInferior = Arrays.copyOf(trianguloInferior, trianguloInferior.length + 1);
                     trianguloInferior[j] = t[i][j];
                 }
             }
@@ -37,7 +37,9 @@ public class MatrizTriangular {
     }
 
     public static void main(String[] args) {
-        int[][] t = {{1, 2, 3},{0, 6, 4},{0, 0, 5}};
+        int[][] t = {{1, 2, 3},
+                     {0, 6, 4},
+                     {0, 0, 5}};
         System.out.println(Arrays.deepToString(t));
         System.out.println(esTriangular(t));
 

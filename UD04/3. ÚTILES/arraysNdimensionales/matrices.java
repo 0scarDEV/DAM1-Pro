@@ -89,6 +89,28 @@ public class matrices {
 
         return esTriangular;
     }
+    public static Boolean esTriangular(int[][] t) {
+        boolean esTriangular = false;
+        if (UtilMatrices.esCuadrada(t) && t.length >= 2) {
+            boolean esTriangularSuperior = true;
+            for (int i = 1; i < t.length; i++)
+                for (int j = 0; j < i; j++)
+                    if (t[i][j] != 0){
+                        esTriangularSuperior = false;
+                    }
+
+
+            boolean esTriangularInferior = true;
+            for (int i = 0; i < t.length - 1; i++)
+                for (int j = i + 1; j < t.length; j++)
+                    if (t[i][j] != 0)
+                        esTriangularInferior = false;
+
+            esTriangular = esTriangularInferior || esTriangularSuperior;
+        }
+
+        return esTriangular;
+    }
     public static int[][] matrizIdentidad(int n){
         int[][] matrizIdentidad = null;
         Arrays.fill(matrizIdentidad, 0);
