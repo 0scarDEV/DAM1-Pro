@@ -26,7 +26,6 @@ public class E0611 {
         char letraCodificada = codifica(conjunto1, conjunto2, 'T');
         String palabraCodificada = codifica(conjunto1, conjunto2, palabra);
 
-        System.out.println(letraCodificada);
         System.out.println(palabraCodificada);
     }
 
@@ -42,7 +41,7 @@ public class E0611 {
 
         return ch;
     }
-    public static String codifica(char conjunto1[],char conjunto2[], String palabra){
+    public static String codifica(char[] conjunto1, char[] conjunto2, String palabra){
         String res = "";
 
         for (int i = 0; i < palabra.length(); i++){

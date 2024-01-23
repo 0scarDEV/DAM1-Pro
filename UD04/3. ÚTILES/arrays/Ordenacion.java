@@ -1,8 +1,10 @@
 package arrays;
 import java.util.Arrays;
 public class Ordenacion {
+    /**
+     * @description Cambia de forma aleatoria los elementos contenidos en la tabla t. Si la tabla estuviera ordenada, dejaría de estarlo.
+     */
     static void desordenar(int[] t) {
-        // Cambia de forma aleatoria los elementos contenidos en la tabla t. Si la tabla estuviera ordenada, dejaría de estarlo.*/
         for (int i = 0; i < t.length; i++){
             int pos = (int) (Math.random() * t.length);
             int ch = t[i];
@@ -10,9 +12,10 @@ public class Ordenacion {
             t[pos] = ch;
         }
     }
-
+    /**
+     * @return no modifica la tabla que se pasa como parámetro y, en su lugar, cree y devuelva una copia de la tabla donde se han desordenado los valores de los elementos.
+     */
     static int[] desordenarTabla(int[] t) {
-        // la función no modifica la tabla que se pasa como parámetro y, en su lugar, cree y devuelva una copia de la tabla donde se han desordenado los valores de los elementos.
         for (int i = 0; i < t.length; i++){
             int pos = (int) (Math.random() * t.length);
             int ch = t[i];

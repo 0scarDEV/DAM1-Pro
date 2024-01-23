@@ -3,8 +3,10 @@ package arrays;
 import java.util.Arrays;
 
 public class Busqueda {
+    /**
+     * @return Devuelve una tabla con todos los índices de los elementos donde se encuentra la clave de búsqueda. En el caso de que clave no se encuentre en la tabla t, la función devolverá una tabla vacía.
+     */
     public static int[] buscarTodos(int[] t, int clave) {
-        // Crea y devuelve una tabla con todos los índices de los elementos donde se encuentra la clave de búsqueda. En el caso de que clave no se encuentre en la tabla t, la función devolverá una tabla vacía.
         int[] t2 = new int[0];
         int i, numCoincidencias = 0;
 

@@ -1,8 +1,10 @@
 package arrays;
 
 public class Operaciones {
+    /**
+     * @return Devuelve un array con el valor mínimo en la posición 0 y el valor máximo en la posición 1.
+     */
     public static double[] calcularMaxMinArray(double[] t) {
-        // Este método devuelve un array con el valor mínimo en la posición 0 y el valor máximo en la posición 1.
         double max, min;
         // Calculamos el máximo y mínimo.
         max = t[0];

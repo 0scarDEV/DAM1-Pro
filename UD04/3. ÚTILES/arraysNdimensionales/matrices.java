@@ -130,9 +130,6 @@ public class matrices {
         }
         return res;
     }
-    public static boolean esMatrizMagica(int[][] t){
-        return (comprobarSumaFilas(t) && comprobarSumaColumnas(t));
-    }
     public static Boolean esOrtogonal(int[][] t){
         Boolean res = null;
         if (esCuadrada(t)){
@@ -143,6 +140,32 @@ public class matrices {
             res = Arrays.deepEquals(tProducto, tIdentidad);
         }
         return res;
+    }
+    public static boolean esMatrizMagica(int[][] t){
+        return (comprobarSumaFilas(t) && comprobarSumaColumnas(t));
+    }
+    public static boolean esMatrizMagicaDiabolica(int[][] t) {
+        return (comprobarSumaColumnas(t) && comprobarSumaFilas(t) && comprobarSumaDiagonalesPrincipales(t));
+    }
+
+    private static boolean comprobarSumaDiagonalesPrincipales(int[][] t) {
+        int sumatorioIzqDer = 0;
+        int sumatorioDerIzq = 0;
+        for (int i = 0; i < t.length; i++) {
+            for (int j = 0; j < t[0].length; j++) {
+                if (i == j) {
+                    sumatorioIzqDer += t[i][j];
+                }
+            }
+        }
+        for (int i = t.length -1; i >= 0; i--) {
+            for (int j = t[0].length; j >= 0; j--) {
+                if (i == j) {
+                    sumatorioDerIzq += t[i][j];
+                }
+            }
+        }
+        return sumatorioIzqDer == sumatorioDerIzq;
     }
     private static boolean comprobarSumaFilas(int[][] t){
         int sumatorioFila1 = 0, sumatorioFila2 = 0, sumatorioFila3 = 0, sumatorioFila4 = 0;
