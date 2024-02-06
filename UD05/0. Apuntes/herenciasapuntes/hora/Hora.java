@@ -1,4 +1,4 @@
-package herenciasapuntes.ej8;
+package herenciasapuntes.hora;
 
 public class Hora {
     byte hora;
