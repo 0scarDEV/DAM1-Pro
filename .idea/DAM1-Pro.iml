@@ -33,11 +33,6 @@
       <sourceFolder url="file://$MODULE_DIR$/UD01/6.Propuestos" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD01/EXAMEN" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD01/wMarcos" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UD01" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UD02" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UD03" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UD04" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UD05" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
