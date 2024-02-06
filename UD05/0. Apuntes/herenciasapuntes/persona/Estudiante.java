@@ -16,7 +16,6 @@ public class Estudiante extends Persona{
     public String toString() {
         return "Estudiante [nombre=" + nombre + ", nota media=" + notaMedia() + "]";
     }
-
     @Override
     public void mostrarDatos() {
         System.out.println("Nombre Estudiante: " + nombre);
