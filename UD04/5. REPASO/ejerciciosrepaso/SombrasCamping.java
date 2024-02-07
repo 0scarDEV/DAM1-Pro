@@ -13,26 +13,72 @@ public class SombrasCamping {
             a = sc.nextInt();
 
             int[][] mapa = new int[c][f];
-            // Rellenamos el mapa de ceros.
-            for (int i = 0; i < mapa.length; i++) {
-                for (int j = 0; j < mapa[0].length; j++) {
-                    mapa[i][j] = 0;
-                }
+
+            int[] posicionArboles = new int[(a * 2)];
+            for (int i = 0; i < (a * 2); i++) {
+                posicionArboles[i] = sc.nextInt() - 1;  // Las posiciones de los árboles vienen dada con la posición inicial (1,1), nosotros queremos que sea (0,0), restamos 1.
             }
 
-            // Posicionamos en un mapa de dimensiones c por f con un "1" los árboles
-            for (int i = 0; i < (2 * a); i++) {
-                int col = 0, fil = 0;
-                if (i % 2 == 0) {
-                    col = sc.nextInt();
-                } else {
-                    fil = sc.nextInt();
-                }
-                mapa[col][fil] = 1;
-            }
+            System.out.println(comprobarSombras(mapa, posicionArboles));
+            sc.close();
         }
     }
+    public static int comprobarSombras(int[][] tablero, int[] posicionArboles) {
+        int sombras = 0;
 
+        // llenamos el array de ceros
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                tablero[i][j] = 0;
+            }
+        }
+
+        // Marcamos las posiciones de los árboles con un "1", las sombras como un "2".
+        for (int k = 0; k < posicionArboles.length; k = k + 2) {
+            for (int i = 0; i < tablero.length; i++) {
+                for (int j = 0; j < tablero[0].length; j++) {
+                    if (i == posicionArboles[k] && j == posicionArboles[k + 1]) { // Si es la posición de un arbol, marcar arbol como "1".
+                        tablero[i][j] = 1;
+                        // Si las posiciones colindantes no están marcadas (un cero), se marcan como sombra (un dos)
+                        if (i != 0 && j != 0 &&  tablero[i - 1][j - 1] == 0) { // arriba izq
+                            tablero[i - 1][j - 1] = 2;
+                        }
+                        if (j != 0 && tablero[i][j - 1] == 0) { // arriba
+                            tablero[i][j - 1] = 2;
+                        }
+                        if (i != tablero.length - 1 && j != 0 && tablero[i + 1][j - 1] == 0) { // arriba der
+                            tablero[i + 1][j - 1] = 2;
+                        }
+                        if (i != 0 && tablero[i - 1][j] == 0) { // izq
+                            tablero[i - 1][j] = 2;
+                        }
+                        if (i != tablero.length - 1 && tablero[i + 1][j] == 0) { // der
+                            tablero[i + 1][j] = 2;
+                        }
+                        if (i != 0 && j != tablero[0].length - 1 && tablero[i - 1][j + 1] == 0) { // abajo izq
+                            tablero[i - 1][j + 1] = 2;
+                        }
+                        if (j != tablero[0].length - 1 && tablero[i][j + 1] == 0) { // abajo
+                            tablero[i][j + 1] = 2;
+                        }
+                        if (i != tablero.length - 1  && j != tablero[0].length - 1 && tablero[i + 1][j + 1] == 0) { // abajo der
+                            tablero[i + 1][j + 1] = 2;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Recorremos el array bidimensional contando los doses.
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                if (tablero[i][j] == 2) {
+                    sombras++;
+                }
+            }
+        }
+        return sombras;
+    }
     private static int pedirColumnas() {
         Scanner sc = new Scanner(System.in);
         int c = 0;
@@ -50,7 +96,6 @@ public class SombrasCamping {
         sc.close();
         return c;
     }
-
     private static int pedirFilas() {
         Scanner sc = new Scanner(System.in);
         int f = 0;
