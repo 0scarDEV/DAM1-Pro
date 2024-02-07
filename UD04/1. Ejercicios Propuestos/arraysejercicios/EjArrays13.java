@@ -1,7 +1,5 @@
 package arraysejercicios;
 
-import simud0401.UtilMatrices;
-
 /* Óscar Fernández Pastoriza
  * EjArrays13. Una matriz diagonal es una matriz cuadrada cuyos elementos fuera de la diagonal principal son todos cero.
  * Ejemplo de una matriz de tamaño 3×3:

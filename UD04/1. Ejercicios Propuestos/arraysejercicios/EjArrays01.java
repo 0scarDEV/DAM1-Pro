@@ -11,18 +11,18 @@ public class EjArrays01 {
         Scanner sc = new Scanner(System.in);
         int entrada = 0, sumatorio = 0, i = 0;
         int[] t1 = new int[0];
+
         do {
             i++;
             t1 = Arrays.copyOf(t1, t1.length + 1);
             sumatorio += entrada;
             entrada = sc.nextInt();
             t1[i - 1] = entrada;
-        } while(entrada != -1);
-
-        int media = sumatorio / (t1.length - 1);
-
-        System.out.println(media);
+        } while (entrada != -1);
 
         sc.close();
+
+        int media = sumatorio / (t1.length - 1);
+        System.out.println(media);
     }
 }
