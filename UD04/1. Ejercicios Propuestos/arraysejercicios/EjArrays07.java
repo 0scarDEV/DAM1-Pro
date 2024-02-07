@@ -6,20 +6,20 @@ import java.util.Scanner;
 public class EjArrays07 {
     public static void main(String[] args) {
         double[] altura = new double[0];
-        int i = -1, alturasSuperiores = 0, alturasInferiores = 0;
+        double entrada;
+        int i = 0;
+        int alturasSuperiores = 0, alturasInferiores = 0;
         double sumando = 0, alturaMedia = 0;
 
         System.out.println("Introduce alturas, puede tener decimales, para salir introduce -1.");
-        do {
-            i++;
+        entrada = new Scanner(System.in).nextDouble();
+        while (entrada != -1) {
             altura = Arrays.copyOf(altura,altura.length + 1);
-            altura[i] = new Scanner(System.in).nextDouble();
+            altura[i] = entrada;
             sumando += altura[i];
-        } while (altura[i] != -1);
-
-        // Quitamos el -1
-        altura = Arrays.copyOf(altura, altura.length - 1);
-
+            i++;
+            entrada = new Scanner(System.in).nextDouble();
+        }
         // Media
         alturaMedia = sumando / altura.length;
 
