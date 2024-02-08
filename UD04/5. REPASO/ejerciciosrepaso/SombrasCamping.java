@@ -2,27 +2,24 @@ package ejerciciosrepaso;
 import java.util.Scanner;
 
 public class SombrasCamping {
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int c = 1, f = 1, a = 1;
-        while ((c != 0) && (f != 0) && (a != 0)) {
-            Scanner sc = new Scanner(System.in);
+        c = pedirColumnas();
+        f = pedirFilas();
+        a = sc.nextInt();
 
-            c = pedirColumnas();
-            f = pedirFilas();
+        int[][] mapa = new int[c][f];
 
-            a = sc.nextInt();
-
-            int[][] mapa = new int[c][f];
-
-            int[] posicionArboles = new int[(a * 2)];
-            for (int i = 0; i < (a * 2); i++) {
-                posicionArboles[i] = sc.nextInt() - 1;  // Las posiciones de los árboles vienen dada con la posición inicial (1,1), nosotros queremos que sea (0,0), restamos 1.
-            }
-
-            System.out.println(comprobarSombras(mapa, posicionArboles));
-            sc.close();
+        int[] posicionArboles = new int[(a * 2)];
+        for (int i = 0; i < (a * 2); i++) {
+            // Las posiciones de los árboles vienen dada con la posición inicial (1,1), nosotros queremos que sea (0,0), restamos 1.
+            posicionArboles[i] = sc.nextInt() - 1;
         }
+
+        System.out.println(comprobarSombras(mapa, posicionArboles));
     }
+
     public static int comprobarSombras(int[][] tablero, int[] posicionArboles) {
         int sombras = 0;
 
@@ -40,7 +37,7 @@ public class SombrasCamping {
                     if (i == posicionArboles[k] && j == posicionArboles[k + 1]) { // Si es la posición de un arbol, marcar arbol como "1".
                         tablero[i][j] = 1;
                         // Si las posiciones colindantes no están marcadas (un cero), se marcan como sombra (un dos)
-                        if (i != 0 && j != 0 &&  tablero[i - 1][j - 1] == 0) { // arriba izq
+                        if (i != 0 && j != 0 && tablero[i - 1][j - 1] == 0) { // arriba izq
                             tablero[i - 1][j - 1] = 2;
                         }
                         if (j != 0 && tablero[i][j - 1] == 0) { // arriba
@@ -61,7 +58,7 @@ public class SombrasCamping {
                         if (j != tablero[0].length - 1 && tablero[i][j + 1] == 0) { // abajo
                             tablero[i][j + 1] = 2;
                         }
-                        if (i != tablero.length - 1  && j != tablero[0].length - 1 && tablero[i + 1][j + 1] == 0) { // abajo der
+                        if (i != tablero.length - 1 && j != tablero[0].length - 1 && tablero[i + 1][j + 1] == 0) { // abajo der
                             tablero[i + 1][j + 1] = 2;
                         }
                     }
@@ -79,8 +76,8 @@ public class SombrasCamping {
         }
         return sombras;
     }
+
     private static int pedirColumnas() {
-        Scanner sc = new Scanner(System.in);
         int c = 0;
         boolean flagC = true;
 
@@ -93,11 +90,10 @@ public class SombrasCamping {
             }
         } while (flagC);
 
-        sc.close();
         return c;
     }
+
     private static int pedirFilas() {
-        Scanner sc = new Scanner(System.in);
         int f = 0;
         boolean flagF = true;
 
@@ -110,7 +106,6 @@ public class SombrasCamping {
             }
         } while (flagF);
 
-        sc.close();
         return f;
     }
 }
