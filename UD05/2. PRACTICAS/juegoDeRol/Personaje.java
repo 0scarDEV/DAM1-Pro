@@ -50,14 +50,16 @@ public class Personaje {
     @Override public String toString() {
         return nombre + "(" + puntosVida + "/" + (constitucion + Personaje.PUNTOS_VIDA_BASE) + ")";
     }
-    public boolean sumarExperiencia(int puntos) {
-        boolean subeDeNivel = false;
+    public byte sumarExperiencia(int puntos) {
+        byte nivelesQueSube = 0;
         experiencia += puntos;
-        if (experiencia / 1000 >= nivel) {
-            nivel = (byte) (experiencia / 1000);
-            subeDeNivel = true;
+
+        while (experiencia >= 1000) {
+            nivelesQueSube++;
+            experiencia -= 1000;
         }
-        return subeDeNivel;
+
+        return nivelesQueSube;
     }
     // Métodos auxiliares
     private static int random(int min, int max) {
@@ -65,6 +67,7 @@ public class Personaje {
     }
     public static void main(String[] args) {
         Personaje p1 = new Personaje("Aragorn", Raza.HUMANO, 90, 90, 90, 10, 16252, 125);
+        p1.sumarExperiencia(2000);
 
         Personaje p2 = new Personaje("Mara", Raza.ELFO, 100, 100, 100);
 

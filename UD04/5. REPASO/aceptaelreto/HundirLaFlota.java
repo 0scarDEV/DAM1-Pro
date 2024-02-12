@@ -1,4 +1,4 @@
-package ejerciciosrepaso;
+package aceptaelreto;
 
 import java.util.Scanner;
 
