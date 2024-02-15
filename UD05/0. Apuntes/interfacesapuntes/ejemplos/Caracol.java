@@ -1,5 +1,5 @@
-package ud5.interfacesapuntes.ejemplos;
+package interfacesapuntes.ejemplos;
 
 public class Caracol {
-    
+
 }

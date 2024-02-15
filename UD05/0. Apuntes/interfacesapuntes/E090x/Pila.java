@@ -1,4 +1,4 @@
-package interfacesapuntes.e090104;
+package interfacesapuntes.E090x;
 
 public interface Pila {
     void apilar(Integer e);

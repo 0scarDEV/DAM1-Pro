@@ -1,4 +1,4 @@
-package interfacesapuntes.e090104;
+package interfacesapuntes.E090x;
 
 import java.util.Arrays;
 

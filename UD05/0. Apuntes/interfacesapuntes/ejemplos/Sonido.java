@@ -1,4 +1,4 @@
-package ud5.interfacesapuntes.ejemplos;
+package interfacesapuntes.ejemplos;
 
 public interface Sonido {
     int version = 1;

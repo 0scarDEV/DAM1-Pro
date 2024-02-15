@@ -1,4 +1,4 @@
-package interfacesapuntes.e090104;
+package interfacesapuntes.E090x;
 
 public interface Cola {
     void encolar(Integer e);
