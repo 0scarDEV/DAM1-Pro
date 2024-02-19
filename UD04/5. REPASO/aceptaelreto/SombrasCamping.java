@@ -19,7 +19,6 @@ public class SombrasCamping {
 
         System.out.println(comprobarSombras(mapa, posicionArboles));
     }
-
     public static int comprobarSombras(int[][] tablero, int[] posicionArboles) {
         int sombras = 0;
 
