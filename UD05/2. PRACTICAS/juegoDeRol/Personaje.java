@@ -1,4 +1,8 @@
 package juegoDeRol;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
 /* Óscar Fernández Pastoriza */
 public class Personaje {
     // Variables
@@ -77,8 +81,16 @@ public class Personaje {
 
         Personaje p5 = new Personaje();
 
-        Personaje[] banda = {p1, p2, p3, p4, p5};
+        Personaje[] banda = {p2, p1, p3, p4, p5};
 
+        for (int i = 0; i < banda.length; i++) {
+            banda[i].mostrar();
+        }
+
+        ComparadorPersonajes comparador = new ComparadorPersonajes();
+        Arrays.sort(banda, comparador);
+
+        System.out.println();
         for (int i = 0; i < banda.length; i++) {
             banda[i].mostrar();
         }
