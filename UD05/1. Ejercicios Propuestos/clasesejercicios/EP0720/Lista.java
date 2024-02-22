@@ -1,9 +1,9 @@
-package clasesapuntes;
+package clasesejercicios.EP0720;
 import java.util.Arrays;
-
+/* Óscar Fernández Pastoriza
+* EP0720. Repite la Actividad EP0718, usando una Lista para guardar los elementos encolados. */
 public class Lista {
     private Integer[] elementos;
-
     public Lista() {
         elementos = new Integer[0];
     }

@@ -1,23 +1,15 @@
-package clasesejercicios;
+package clasesejercicios.EP0722;
 import clasesapuntes.Lista;
 import java.util.Objects;
 /* Óscar Fernández Pastoriza */
-/* EP0721. Un conjunto es una estructura dinámica de datos como la lista, con dos diferencias en primer lugar, en una lista puede haber elementos repetidos, mientras que en un conjunto, no. Además, en una lista el orden de inserción de los elementos puede ser relevante y debemos tenerlo en cuenta, mientras que en un conjunto solo interesa si un elemento pertenece o no al conjunto y no el lugar que ocupa. Se pide implementar la clase Conjunto utilizando una lista para almacenar números de tipo Integer. Implementa los siguientes métodos:
-
-Un constructor sin parámetros.
-int numeroElementos(): devuelve el número de elementos del conjunto.
-boolean insertar(Integer nuevo): inserta un nuevo elemento en el conjunto.
-boolean insertar(Conjunto otroConjunto): añade al conjunto los elementos del conjunto otroConjunto.
-boolean eliminar(Integer elemento): en caso de pertenecer al conjunto elimina elemento.
-boolean eliminar(Conjunto otroConjunto): elimina del conjunto invocante los elementos del conjunto que se pasa como parámetro.
-boolean pertenece(Integer elemento): indica si el elemento que se le pasa como parámetro pertenece o no al conjunto.
-mostrar(): muestra el conjunto por consola.
-
-De forma general, los métodos que devuelven un booleano indican con él si el conjunto se ha modificado.
-*/
-public class Conjunto {
+/* EP0722. Añade a la clase Conjunto los siguientes métodos estáticos:
+ * static boolean incluido(Conjunto c1, Conjunto c2): que devuelve true si c1 está incluido en c2, es decir, si todos los elementos de c1 están también en c2.
+ * static Conjunto union(Conjunto c1, Conjunto c2): devuelve un nuevo conjunto con todos los elementos que están en c1, en c2 o en ambos (elementos comunes y no comunes).
+ * static interseccion(Conjunto c1, Conjunto c2): que devuelve un nuevo conjunto con todos los elementos que están en c1 y en c2 a la vez (elementos comunes).
+ * static diferencia(Conjunto c1, Conjunto c2): que devuelve un nuevo conjunto con todos los elementos que están en c1, pero no en c2. */
+public class ConjuntoAvanzado {
     private Lista lista;
-    public Conjunto() {
+    public ConjuntoAvanzado() {
         this.lista = new Lista();
     }
     public int numeroElementos() {
@@ -30,7 +22,7 @@ public class Conjunto {
         }
         return false;
     }
-    public boolean insertar(Conjunto otroConjunto) {
+    public boolean insertar(ConjuntoAvanzado otroConjunto) {
         boolean bandera = false;
         for (int i = 0; i < otroConjunto.lista.numElementos(); i++) {
             if (insertar(otroConjunto.lista.obtenerValor(i))) {
@@ -48,7 +40,7 @@ public class Conjunto {
         }
         return false;
     }
-    public boolean eliminar(Conjunto otroConjunto) {
+    public boolean eliminar(ConjuntoAvanzado otroConjunto) {
         boolean bandera = false;
         for (int i = 0; i < otroConjunto.lista.numElementos(); i++) {
             int valor = lista.buscarValorEnLista(otroConjunto.lista.obtenerValor(i));
@@ -72,7 +64,7 @@ public class Conjunto {
     public void mostrar() {
         this.lista.mostrar();
     }
-    public static boolean incluido(Conjunto c1, Conjunto c2) {
+    public static boolean incluido(ConjuntoAvanzado c1, ConjuntoAvanzado c2) {
         for (int j = 0; j < c1.lista.numElementos(); j++) {
             if (c2.lista.buscarValorEnLista(c1.lista.obtenerValor(j)) == -1) {
                 return false;
@@ -80,8 +72,8 @@ public class Conjunto {
         }
         return true;
     }
-    public static Conjunto union(Conjunto c1, Conjunto c2) {
-        Conjunto cr = new Conjunto();
+    public static ConjuntoAvanzado union(ConjuntoAvanzado c1, ConjuntoAvanzado c2) {
+        ConjuntoAvanzado cr = new ConjuntoAvanzado();
         for (int i = 0; i < c1.numeroElementos(); i++) {
             if (!incluido(c1, cr)) {
                 cr.insertar(c1.lista.obtenerValor(i));
@@ -94,8 +86,8 @@ public class Conjunto {
         }
         return cr;
     }
-    public static Conjunto interseccion(Conjunto c1, Conjunto c2) {
-        Conjunto cr = new Conjunto();
+    public static ConjuntoAvanzado interseccion(ConjuntoAvanzado c1, ConjuntoAvanzado c2) {
+        ConjuntoAvanzado cr = new ConjuntoAvanzado();
         for (int i = 0; i < c1.numeroElementos(); i++) {
             for (int j = 0; j < c2.numeroElementos(); j++) {
                 if (incluido(c1, c2) && incluido(c2, c1)) {
@@ -105,8 +97,8 @@ public class Conjunto {
         }
         return cr;
     }
-    public static Conjunto diferencia(Conjunto c1, Conjunto c2) {
-        Conjunto cr = new Conjunto();
+    public static ConjuntoAvanzado diferencia(ConjuntoAvanzado c1, ConjuntoAvanzado c2) {
+        ConjuntoAvanzado cr = new ConjuntoAvanzado();
         for (int i = 0; i < c1.numeroElementos(); i++) {
             if (!incluido(c2, c1)) {
                 cr.insertar(c1.lista.obtenerValor(i));
@@ -123,13 +115,13 @@ public class Conjunto {
     public static void main(String[] args) {
         // Métodos de instancia
         System.out.println("Instance");
-        Conjunto c1 = new Conjunto();
+        ConjuntoAvanzado c1 = new ConjuntoAvanzado();
 
         System.out.println(c1.insertar(7));
         System.out.println(c1.insertar(6));
         System.out.println(c1.insertar(7));
 
-        Conjunto c2 = new Conjunto();
+        ConjuntoAvanzado c2 = new ConjuntoAvanzado();
         c2.insertar(5);
         c2.insertar(6);
 
@@ -144,9 +136,9 @@ public class Conjunto {
         // Métodos estáticos
         System.out.println("Static");
 
-        Conjunto a = new Conjunto();
-        Conjunto b = new Conjunto();
-        Conjunto c = new Conjunto();
+        ConjuntoAvanzado a = new ConjuntoAvanzado();
+        ConjuntoAvanzado b = new ConjuntoAvanzado();
+        ConjuntoAvanzado c = new ConjuntoAvanzado();
         a.insertar(1);
         a.insertar(2);
         b.insertar(3);
@@ -154,9 +146,9 @@ public class Conjunto {
         c.insertar(2);
         c.insertar(6);
 
-        Conjunto.union(a,b).mostrar();
-        Conjunto.union(a,c).mostrar();
-        Conjunto.interseccion(a,c).mostrar();
-        Conjunto.interseccion(a,c).mostrar();
+        ConjuntoAvanzado.union(a,b).mostrar();
+        ConjuntoAvanzado.union(a,c).mostrar();
+        ConjuntoAvanzado.interseccion(a,c).mostrar();
+        ConjuntoAvanzado.interseccion(a,c).mostrar();
     }
 }

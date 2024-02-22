@@ -1,4 +1,4 @@
-package herenciasapuntes.instrumento;
+package herenciaejercicios.EP0811;
 import java.util.Arrays;
 
 public abstract class Instrumento {
@@ -11,5 +11,5 @@ public abstract class Instrumento {
         melodia = Arrays.copyOf(melodia, melodia.length + 1);
         melodia[melodia.length - 1] = nota;
     }
-    public abstract void interpretar();
+    protected abstract void interpretar();
 }

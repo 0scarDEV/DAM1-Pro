@@ -1,10 +1,9 @@
-package clasesapuntes;
-
+package clasesejercicios.EP0719;
+import clasesapuntes.Lista;
 /* Óscar Fernández Pastoriza
 * EP0719. Implementa la clase Pila para números Integer, usando directamente una tabla para guardar los elementos apilados. */
 public class Pila {
     private Lista elementos;
-
     public Pila() {
         elementos = new Lista();
     }
@@ -14,7 +13,6 @@ public class Pila {
     public Integer desapilar() {
         return elementos.eliminarEnLista(elementos.numElementos() - 1);
     }
-
     public static void main(String[] args) {
         Pila pila = new Pila();
 

@@ -1,7 +1,7 @@
 package herenciasapuntes.instrumento;
 
 public class Piano extends Instrumento {
-    @Override void interpretar() {
+    @Override public void interpretar() {
         System.out.print("MELODIA DE PIANO: ");
         for (int i = 0; i < melodia.length; i++) {
             System.out.print (melodia[i] + " ");
