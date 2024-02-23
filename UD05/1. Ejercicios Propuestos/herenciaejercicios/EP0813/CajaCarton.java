@@ -8,10 +8,15 @@ public class CajaCarton extends herenciaejercicios.EP0812.Caja {
     }
     @Override
     public double getVolumen() {
-        double cubicos;
-
-        cubicos = (this.ancho / 100.0) * (this.alto / 100.0) * (this.fondo / 100.0);
-
+        double cubicos = super.getVolumen();
+        cubicos = cubicos * 0.8;
         return cubicos;
+    }
+    public double superficie() {
+        double areaX = ancho * alto;
+        double areaY = alto * fondo;
+        double areaZ = ancho * fondo;
+
+        return (areaX * 2) + (areaY * 2) + (areaZ * 2);
     }
 }
