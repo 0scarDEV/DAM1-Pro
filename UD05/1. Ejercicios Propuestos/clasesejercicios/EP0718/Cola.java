@@ -4,13 +4,11 @@ import java.util.Arrays;
 public interface Cola {
     void encolar(Integer e);
     Integer desencolar();
-
     default void encolarMultiple(Integer e, int nRep){
         for(int i = 0; i < nRep; i++){
             encolar(e);
         }
     }
-
     default Integer[] desencolarTodos(){
         Integer[] elementos = new Integer[0];
 

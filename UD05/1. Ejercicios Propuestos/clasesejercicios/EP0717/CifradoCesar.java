@@ -8,29 +8,36 @@ public class CifradoCesar {
         char[] caracteres = str.toCharArray();
         char[] caracteresCodificados = new char[caracteres.length];
         String cadenaCodificada = "";
+        char caracterControlMayus = (char) ('Z' - n);
+        char caracterControlMinus = (char) ('z' - n);
 
         for (int i = 0; i < caracteres.length; i++) {
             if (caracteres[i] >= 'A' && caracteres[i] <= 'Z') {         // Compruebo si son mayúsculas
-                if (caracteres[i] <= 'M') {
+                if (caracteres[i] <= caracterControlMayus) {
                     caracteresCodificados[i] = (char) (caracteres[i] + n);
                 } else {
-                    caracteresCodificados[i] = (char) (caracteres[i] - n);
+                    int dif = (char) ('z' - caracteres[i]);
+                    char cambio = (char) ('a' + (n - (dif + 1)));
+                    caracteresCodificados[i] = cambio;
                 }
             } else if (caracteres[i] >= 'a' && caracteres[i] <= 'z') {  // Comprueba si son minúsculas
-                if (caracteres[i] <= 'm') {
+                if (caracteres[i] <= caracterControlMinus) {
                     caracteresCodificados[i] = (char) (caracteres[i] + n);
                 } else {
-                    caracteresCodificados[i] = (char) (caracteres[i] - n);
+                    int dif = (char) ('z' - caracteres[i]);
+                    char cambio = (char) ('a' + (n - (dif + 1)));
+                    caracteresCodificados[i] = cambio;
                 }
             } else {                                                    // Si no son ni mayúsculas ni minúsculas, no es una letra.
                 cadenaCodificada = "No es una letra.";
             }
         }
-
         for (int i = 0; i < caracteresCodificados.length; i++) {
             cadenaCodificada += caracteresCodificados[i];
         }
-
         return cadenaCodificada;
+    }
+    public static void main(String[] args) {
+        System.out.println(cifrar("abcdefghijklmnopqrstvwxyz", 5));
     }
 }

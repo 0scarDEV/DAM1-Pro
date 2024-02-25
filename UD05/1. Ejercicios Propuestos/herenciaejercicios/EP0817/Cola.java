@@ -1,5 +1,5 @@
 package herenciaejercicios.EP0817;
-import herenciaejercicios.EP0815.Lista;
+import herenciaejercicios.EP0814_15.Lista;
 import java.util.Arrays;
 /* Óscar Fernández Pastoriza
 * EP0817. Escribe la clase Cola heredando de Lista (ver Actividad EP0718 más arriba). */

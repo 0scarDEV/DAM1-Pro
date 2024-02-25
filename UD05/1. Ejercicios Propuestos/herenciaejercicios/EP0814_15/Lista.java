@@ -1,8 +1,8 @@
-package herenciaejercicios.EP0814;
+package herenciaejercicios.EP0814_15;
 import java.util.Arrays;
-/* Óscar Fernández Pastoriza
- * EP0814. Reimplementa la clase Lista de la Actividad E0711, sustituyendo el método mostrar() por el método toString(). */
+/* Óscar Fernández Pastoriza */
 public class Lista {
+     /* EP0814. Reimplementa la clase Lista de la Actividad E0711, sustituyendo el método mostrar() por el método toString(). */
     private Integer[] elementos;
     public Lista() {
         elementos = new Integer[0];
@@ -53,15 +53,29 @@ public class Lista {
         }
         return pos;
     }
-    @Override
-    public String toString() {
-        return Arrays.toString(elementos);
-    }
     public static Lista concatena(Lista l1, Lista l2) {
         Integer[] aux = Arrays.copyOf(l1.elementos, l1.elementos.length + l2.elementos.length);
         System.arraycopy(l2.elementos, 0, aux, l1.elementos.length, l2.elementos.length);
         l1.elementos = aux;
         return l1;
+    }
+    @Override
+    public String toString() {
+        return Arrays.toString(elementos);
+    }
+    /* EP0815. Escribe en la clase Lista un método equals() para compararlas. Dos listas se considerarán iguales si tienen los mismos elementos (incluidas las repeticiones) en el mismo orden. */
+    public boolean equals(Lista e) {
+        boolean res = true;
+        if (this.elementos.length != e.elementos.length) {
+            res = false;
+        } else {
+            for (int i = 0; i < this.elementos.length; i++) {
+                if (!this.elementos[i].equals(e.elementos[i])) {
+                    res = false;
+                }
+            }
+        }
+        return res;
     }
     public static void main(String[] args) {
         Lista lista1 = new Lista();
