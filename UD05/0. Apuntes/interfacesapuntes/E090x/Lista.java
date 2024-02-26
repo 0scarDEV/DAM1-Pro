@@ -18,6 +18,10 @@ public class Lista implements Cola, Pila {
         return eliminarEn(0);
     }
 
+    @Override public void encolarMultiple(Integer e, int nRep) {
+        Cola.super.encolarMultiple(e, nRep);
+    }
+
     /** Interfaz Pila */
     @Override
     public void apilar(Integer e) {
