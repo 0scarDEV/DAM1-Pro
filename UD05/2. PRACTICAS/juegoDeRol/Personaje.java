@@ -54,17 +54,6 @@ public class Personaje {
     @Override public String toString() {
         return nombre + "(" + puntosVida + "/" + (constitucion + Personaje.PUNTOS_VIDA_BASE) + ")";
     }
-    public byte sumarExperiencia(int puntos) {
-        byte nivelesQueSube = 0;
-        experiencia += puntos;
-
-        while (experiencia >= 1000) {
-            nivelesQueSube++;
-            experiencia -= 1000;
-        }
-
-        return nivelesQueSube;
-    }
     // Métodos auxiliares
     private static int random(int min, int max) {
         return (int) (Math.random() * (max - min + 1) + min);
@@ -94,5 +83,64 @@ public class Personaje {
         for (int i = 0; i < banda.length; i++) {
             banda[i].mostrar();
         }
+    }
+    // Combate Singular
+    public byte sumarExperiencia(int puntos) {
+        byte nivelesQueSube = 0;
+        experiencia += puntos;
+
+        while (experiencia >= 1000) {
+            nivelesQueSube++;
+            experiencia -= 1000;
+        }
+
+        return nivelesQueSube;
+    }
+    boolean perderVida(int puntos) {
+        this.puntosVida -= puntosVida;
+        return !estaVivo();
+    }
+    boolean estaVivo() {
+        return this.puntosVida > 0;
+    }
+    int atacar(Personaje enemigo) {
+        int puntosAtaque = random(0, 100) * fuerza;
+        int puntosDefensa = random(0, 100) * enemigo.agilidad;
+
+        int diferencia = puntosAtaque - puntosDefensa;
+        if (diferencia > 0) {
+            enemigo.perderVida(diferencia);
+
+            if (diferencia > enemigo.puntosVida) {
+                this.sumarExperiencia(enemigo.puntosVida);
+                enemigo.sumarExperiencia(enemigo.puntosVida);
+            } else {
+                this.sumarExperiencia(diferencia);
+                enemigo.sumarExperiencia(diferencia);
+            }
+
+            return diferencia;
+        }
+
+        return 0;
+    }
+    int atacar(Monstruo enemigo) {
+        int puntosAtaque = random(0, 100) * fuerza;
+        int puntosDefensa = random(0, 100) * enemigo.defensa;
+
+        int diferencia = puntosAtaque - puntosDefensa;
+        if (diferencia > 0) {
+            enemigo.perderVida(diferencia);
+
+            if (diferencia > enemigo.puntosVida) {
+                this.sumarExperiencia(enemigo.puntosVida);
+            } else {
+                this.sumarExperiencia(diferencia);
+            }
+
+            return diferencia;
+        }
+
+        return 0;
     }
 }

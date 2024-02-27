@@ -8,9 +8,8 @@ public class EP0822 {
         super.finalize();
     }
     public static void main(String[] args) {
-        for (int i = 0; i < 100000; i++) {
-            Object obj = new Object();
-            obj = null; // Hacemos que el objeto sea no referenciado
+        for (int i = 0; i < 10; i++) {
+            new EP0822();
         }
     }
 }
