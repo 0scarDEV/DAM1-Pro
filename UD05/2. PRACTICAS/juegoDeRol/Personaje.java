@@ -2,6 +2,7 @@ package juegoDeRol;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 /* Óscar Fernández Pastoriza */
 public class Personaje {
@@ -15,8 +16,15 @@ public class Personaje {
     byte nivel;
     int experiencia;
     short puntosVida;
+    final static byte PORCENTAJE_SUBIDA_NIVEL = 5;
     final static byte PUNTOS_VIDA_BASE = 50;
-
+    // Getters y setters
+    public String getNombre() {
+        return nombre;
+    }
+    public short getConstitucion() {
+        return constitucion;
+    }
     // Constructores
     public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion, int nivel, int experiencia, int puntosVida) {
         if (fuerza <= 0 || agilidad <= 0 || constitucion <= 0 || nivel <= 0 || puntosVida <= 0) {
@@ -96,6 +104,12 @@ public class Personaje {
 
         return nivelesQueSube;
     }
+    public void subirNivel() {
+        nivel++;
+        fuerza *= 1 + (PORCENTAJE_SUBIDA_NIVEL / 100);
+        agilidad *= 1 + (PORCENTAJE_SUBIDA_NIVEL / 100);
+        constitucion *= 1 + (PORCENTAJE_SUBIDA_NIVEL / 100);
+    }
     boolean perderVida(int puntos) {
         this.puntosVida -= puntosVida;
         return !estaVivo();
@@ -107,40 +121,72 @@ public class Personaje {
         int puntosAtaque = random(0, 100) * fuerza;
         int puntosDefensa = random(0, 100) * enemigo.agilidad;
 
-        int diferencia = puntosAtaque - puntosDefensa;
-        if (diferencia > 0) {
-            enemigo.perderVida(diferencia);
+        int danho = puntosAtaque - puntosDefensa;
+        if (danho > 0) {
+            enemigo.perderVida(danho);
 
-            if (diferencia > enemigo.puntosVida) {
-                this.sumarExperiencia(enemigo.puntosVida);
-                enemigo.sumarExperiencia(enemigo.puntosVida);
-            } else {
-                this.sumarExperiencia(diferencia);
-                enemigo.sumarExperiencia(diferencia);
+            if (danho > enemigo.puntosVida) {
+                danho = enemigo.puntosVida;
             }
 
-            return diferencia;
+            this.sumarExperiencia(danho);
+            enemigo.sumarExperiencia(danho);
+
+        } else if (danho < 0) {
+            danho = 0;
         }
 
-        return 0;
+        return danho;
     }
+    // Monstruos
     int atacar(Monstruo enemigo) {
         int puntosAtaque = random(0, 100) * fuerza;
         int puntosDefensa = random(0, 100) * enemigo.defensa;
 
-        int diferencia = puntosAtaque - puntosDefensa;
-        if (diferencia > 0) {
-            enemigo.perderVida(diferencia);
+        int danho = puntosAtaque - puntosDefensa;
+        if (danho >= 0) {
+            enemigo.perderVida(danho);
 
-            if (diferencia > enemigo.puntosVida) {
-                this.sumarExperiencia(enemigo.puntosVida);
-            } else {
-                this.sumarExperiencia(diferencia);
+            if (danho > enemigo.puntosVida) {
+                danho = enemigo.puntosVida;
             }
 
-            return diferencia;
+            this.sumarExperiencia(danho);
+        } else {
+            danho = 0;
         }
 
-        return 0;
+        return danho;
+    }
+    // Equals y ordenar
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Personaje personaje = (Personaje) o;
+        return  fuerza == personaje.fuerza
+                && agilidad == personaje.agilidad
+                && constitucion == personaje.constitucion
+                && nivel == personaje.nivel
+                && experiencia == personaje.experiencia
+                && puntosVida == personaje.puntosVida
+                && Objects.equals(nombre, personaje.nombre)
+                && raza == personaje.raza;
+    }
+    static Personaje[] sortAgilidadDesc(Personaje[] personajes){
+        Personaje[] A = Arrays.copyOf(personajes, personajes.length);
+
+        int i, j;
+        Personaje aux;
+        for (i = 0; i < A.length - 1; i++) {
+            for (j = 0; j < A.length - i - 1; j++) {
+                if (A[j + 1].agilidad > A[j].agilidad) {
+                    aux = A[j + 1];
+                    A[j + 1] = A[j];
+                    A[j] = aux;
+                }
+            }
+        }
+        return A;
     }
 }
