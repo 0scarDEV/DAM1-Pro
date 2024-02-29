@@ -13,7 +13,6 @@ public class Armadura extends Item {
     public Tipo getTipo() {
         return tipo;
     }
-
     @Override public String toString() {
         return "- " + nombre + " (+" + defensa + " defensa)";
     }

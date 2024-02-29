@@ -162,4 +162,35 @@ public class PersonajeEx extends Personaje {
         }
         System.out.println();
     }
+    /* TIENDA */
+    public boolean comprar(Tienda tienda, Integer index) {
+        Item[] stock = tienda.getStock();
+        index --;
+        if (index >= stock.length || index < 0 ) {
+            return false;
+        }
+        if (this.numMonedas < stock[index].precioBase) {
+            return false;
+        }
+        if (!addToInventario(stock[index])) {
+            return false;
+        }
+        this.numMonedas -= stock[index].precioBase;
+        tienda.retirarItem(index);
+        return true;
+    }
+    public boolean vender(Tienda tienda, Integer index) {
+        if (index >= inventario.length || index < 0) {
+            return false;
+        }
+        if (tienda.saldo < inventario[index].precioBase) {
+            return false;
+        }
+        if (!quitarInventario(index)) {
+            return false;
+        }
+        this.numMonedas += inventario[index].precioBase;
+        tienda.addItem(inventario[index]);
+        return true;
+    }
 }
