@@ -1,4 +1,4 @@
-package interfacesejercicios.EP0928b;
+package interfacesejercicios.EP0928b_29_30;
 import java.time.Duration;
 import java.time.LocalDateTime;
 /* Óscar Fernández Pastoriza */

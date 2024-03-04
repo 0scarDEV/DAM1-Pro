@@ -5,18 +5,18 @@ import java.util.Arrays;
 * EP0817. Escribe la clase Cola heredando de Lista (ver Actividad EP0718 más arriba). */
 public class Cola extends Lista {
     Lista cola = new Lista();
-    void encolar(Integer e) {
+    public void encolar(Integer e) {
         cola.addFin(e);
     }
-    Integer desencolar() {
+    public Integer desencolar() {
         return cola.eliminarEnLista(0);
     }
-    void encolarMultiple(Integer e, int nRep){
+    public void encolarMultiple(Integer e, int nRep){
         for(int i = 0; i < nRep; i++){
             encolar(e);
         }
     }
-    Integer[] desencolarTodos(){
+    public Integer[] desencolarTodos(){
         Integer[] elementos = new Integer[0];
 
         Integer e = desencolar();

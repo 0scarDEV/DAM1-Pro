@@ -2,7 +2,7 @@ package interfacesejercicios.EP0913_14;
 import java.util.Arrays;
 import java.util.Comparator;
 /* Óscar Fernández Pastoriza */
-public class Futbolista implements Comparable {
+public class Futbolista implements Comparable<Futbolista> {
     /* EP0913. Diseñar la clase Futbolista con los siguientes atributos: dni, nombre, edad y número de goles. Implementar:
         * Un constructor y los métodos toString() y equals() (este último basado en el DNI).
         * La interfaz Comparable con un criterio de ordenación basado también en el DNI.
@@ -31,11 +31,12 @@ public class Futbolista implements Comparable {
         return dni.equals(otro.dni);
     }
     @Override
-    public int compareTo(Object o) {
-        return this.dni.compareTo(((Futbolista) o).dni);
+    public int compareTo(Futbolista o) {
+        return this.dni.compareTo(o.dni);
     }
     static Comparator comparadorNombre = new Comparator() {
-        @Override public int compare(Object o1, Object o2) {
+        @Override
+        public int compare(Object o1, Object o2) {
             Futbolista f1 = (Futbolista) o1;
             Futbolista f2 = (Futbolista) o2;
             return f1.nombre.compareTo(f2.nombre);

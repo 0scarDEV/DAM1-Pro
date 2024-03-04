@@ -1,5 +1,7 @@
 package examenud5;
 
+import java.util.Arrays;
+
 public class Tienda {
     String nombre;
     Item[] stock;
@@ -30,5 +32,11 @@ public class Tienda {
         }
         this.saldo += stock[index].precioBase;
         this.stock = aux;
+    }
+
+    public void addItem(Item item) {
+        stock = Arrays.copyOf(stock, stock.length + 1);
+        stock[stock.length - 1] = item;
+        saldo -= item.precioBase;
     }
 }

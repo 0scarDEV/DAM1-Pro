@@ -193,4 +193,18 @@ public class PersonajeEx extends Personaje {
         tienda.addItem(inventario[index]);
         return true;
     }
+    private boolean quitarInventario(Integer index) {
+        Item[] aux = new Item[inventario.length - 1];
+        index -= 1;
+        int j = 0;
+        for (int i = 0; i < inventario.length; i++) {
+            if (i != index) {
+                aux[j] = inventario[i];
+                j++;
+            }
+        }
+        this.numMonedas += inventario[index].precioBase;
+        this.inventario = aux;
+        return true;
+    }
 }
