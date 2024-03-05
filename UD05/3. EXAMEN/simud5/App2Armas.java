@@ -1,4 +1,4 @@
-package examenud5;
+package simud5;
 /* Óscar Fernández Pastoriza */
 public class App2Armas {
     public static void main(String[] args) {

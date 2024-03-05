@@ -1,4 +1,4 @@
-package examenud5;
+package simud5;
 
 import java.util.Arrays;
 

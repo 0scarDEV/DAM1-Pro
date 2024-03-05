@@ -1,4 +1,4 @@
-package examenud5;
+package simud5;
 /* Óscar Fernández Pastoriza */
 public class Armadura extends Item {
     /* ARMAS Y ARMADURAS */

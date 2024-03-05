@@ -1,4 +1,4 @@
-package examenud5;
+package simud5;
 /* Óscar Fernández Pastoriza */
 import java.util.Objects;
 public class Item {

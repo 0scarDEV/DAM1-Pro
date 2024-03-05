@@ -1,4 +1,4 @@
-package examenud5;
+package simud5;
 
 public class App3Tienda {
 

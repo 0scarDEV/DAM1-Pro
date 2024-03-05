@@ -1,4 +1,4 @@
-package examenud5;
+package simud5;
 /* Óscar Fernández Pastoriza */
 import juegoDeRol.Personaje;
 import java.util.Arrays;
