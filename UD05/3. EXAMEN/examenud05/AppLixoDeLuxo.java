@@ -5,7 +5,7 @@ import java.util.Scanner;
 /* Óscar Fernández Pastoriza */
 public class AppLixoDeLuxo {
     static User username = null;
-    static CompFechaPublicacionDesc cPubliDesc = new CompFechaPublicacionDesc();
+    static ComparadorFechaPublicacion cPubliDesc = (ComparadorFechaPublicacion) new ComparadorFechaPublicacion().reversed();
     static Objeto[] objetos = {
             new ObjetoElectronico("Laptop", "Laptop en buen estado", "Calle Principal",
                     new User("aguado"), LocalDateTime.of(2024, 2, 20, 10, 0), new User("igarcrodr"),
