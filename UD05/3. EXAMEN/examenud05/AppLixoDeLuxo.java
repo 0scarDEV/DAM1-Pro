@@ -5,7 +5,7 @@ import java.util.Scanner;
 /* Óscar Fernández Pastoriza */
 public class AppLixoDeLuxo {
     static User username = null;
-    static ComparadorFechaPublicacion cPubliDesc = (ComparadorFechaPublicacion) new ComparadorFechaPublicacion().reversed();
+    static ComparadorFechaPublicacion cPubli = new ComparadorFechaPublicacion();
     static Objeto[] objetos = {
             new ObjetoElectronico("Laptop", "Laptop en buen estado", "Calle Principal",
                     new User("aguado"), LocalDateTime.of(2024, 2, 20, 10, 0), new User("igarcrodr"),
@@ -111,7 +111,7 @@ public class AppLixoDeLuxo {
     }
     private static void listarObjetos() {
         CompUsuario cUsuario = new CompUsuario();
-        Arrays.sort(objetos, cUsuario.thenComparing(cPubliDesc));
+        Arrays.sort(objetos, cUsuario.thenComparing(cPubli.reversed()));
         System.out.println("N. Nombre\t\t" + "Fecha Publicación");
         System.out.println("---------\t\t" + "------\t" + "-------\t" + "-----------------");
         int j = 0;
@@ -158,7 +158,7 @@ public class AppLixoDeLuxo {
         }
     }
     private static void listarObjetosAnon() {
-        Arrays.sort(objetos, cPubliDesc);
+        Arrays.sort(objetos, cPubli.reversed());
         System.out.println("N. Nombre\t\t" + "Fecha Publicación");
         System.out.println("---------\t\t" + "------\t" + "-------\t" + "-----------------");
         int j = 0;
