@@ -10,10 +10,12 @@ public class ComparadorRecogidosUsuariosFecha implements Comparator {
         Boolean recogido2 = ob2.recogido;
         int res = recogido.compareTo(recogido2);
         if (res == 0) {
-            if (ob1.usuarioPublicacion == null || ob2.usuarioPublicacion == null) {
+            if (ob1.usuarioPublicacion == null) {
+                res = 1;
+            } else if (ob2.usuarioPublicacion == null ){
                 res = -1;
             } else {
-                res = -(new ComparadorFechaPublicacion().compare(ob1, ob2));
+                res = ob1.fechaHoraPublicacion.compareTo(ob2.fechaHoraPublicacion);
             }
         }
         return res;
