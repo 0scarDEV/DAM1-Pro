@@ -1,4 +1,4 @@
-package apuntesgenericos;
+package coleccionesapuntes;
 import java.util.Arrays;
 
 public class Util {

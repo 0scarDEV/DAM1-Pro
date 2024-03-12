@@ -1,10 +1,9 @@
-package apuntesgenericos.E1202_03;
+package coleccionesapuntes;
 
 import java.util.Arrays;
 
 public class Contenedor<T> {
     private T[] objetos;
-
     public Contenedor() {
         objetos = (T[]) new Object[0];
     }
