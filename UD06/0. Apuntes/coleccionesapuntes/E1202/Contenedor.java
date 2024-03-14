@@ -1,4 +1,4 @@
-package coleccionesapuntes;
+package coleccionesapuntes.E1202;
 
 import java.util.Arrays;
 
