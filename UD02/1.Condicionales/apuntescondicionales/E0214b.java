@@ -7,11 +7,11 @@ public class E0214b {
     public static void main(String[] args) {
         // Declaraciones
         Scanner sc = new Scanner(System.in);
-        int año, mes, dia;
+        int anho, mes, dia;
 
         // Entrada
-        System.out.print("Introduzca a continuación un año (Ej: 2020) ");
-        año = sc.nextInt();
+        System.out.print("Introduzca a continuación un anho (Ej: 2020) ");
+        anho = sc.nextInt();
         System.out.print("Introduzca a continuación el mes (Ej: 11) ");
         mes = sc.nextInt();
         System.out.print("Introduzca a continuación el día (Ej: 28) ");
@@ -30,7 +30,7 @@ public class E0214b {
                         
                         if (mes == 12) {
                             mes = 1;
-                            año++;
+                            anho++;
                         }
                         break;
                     case 2:
@@ -52,7 +52,7 @@ public class E0214b {
             }
 
         // Salida
-        System.out.println("Tras sumarle un día a la fecha introducida es el " + dia + " de " + mes + " del " + año);
+        System.out.println("Tras sumarle un día a la fecha introducida es el " + dia + " de " + mes + " del " + anho);
         sc.close();
     }
 }

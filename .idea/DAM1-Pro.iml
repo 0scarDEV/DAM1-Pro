@@ -26,7 +26,6 @@
       <sourceFolder url="file://$MODULE_DIR$/UD05/4. EXAMEN" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD01/0.HolaMundo_MultiCode" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD01/1.HolaMundo_Java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UD01/2.Identificadores" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD01/3.API" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD01/4.OperacionesBasicas" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD01/5.Expresiones" isTestSource="false" />
@@ -151,5 +150,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="gson-2.10.1" level="application" />
   </component>
 </module>
