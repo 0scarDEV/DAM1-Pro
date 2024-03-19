@@ -1,7 +1,6 @@
 package coleccionesejercicios;
-
 import java.util.Arrays;
-
+/* Óscar Fernández Pastoriza*/
 public class Contenedor<T> {
     private T[] objetos;
     public Contenedor() {
@@ -29,10 +28,10 @@ public class Contenedor<T> {
         }
     }
     public void insertarAlFinal(T nuevo) {
-        if (objetos[objetos.length - 1] == null) {
+        if (objetos[objetos.length - 1] != null) {
             objetos = Arrays.copyOf(objetos, objetos.length + 1);
-            objetos[objetos.length - 1] = nuevo;
         }
+        objetos[objetos.length - 1] = nuevo;
     }
     void ordenar() {
         Arrays.sort(objetos);
