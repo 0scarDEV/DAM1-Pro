@@ -1,9 +1,14 @@
-package coleccionesejercicios;
+package coleccionesejercicios.EP1214;
 import java.util.Arrays;
+import java.util.Comparator;
 /* Óscar Fernández Pastoriza*/
-public class Contenedor<T> {
+public class Contenedor4<T> {
+    /* EP1214. Añade a la clase Contenedor el método
+        * T get (int indice)
+     * que devuelve el elemento que ocupa el lugar indice dentro del contenedor.
+    */
     private T[] objetos;
-    public Contenedor() {
+    public Contenedor4() {
         objetos = (T[]) new Object[1];
     }
     @Override public String toString() {
@@ -36,5 +41,11 @@ public class Contenedor<T> {
     }
     public void ordenar() {
         Arrays.sort(objetos);
+    }
+    public void ordenar(Comparator<T> comparator) {
+        Arrays.sort(objetos, comparator);
+    }
+    public T get(int indice) {
+        return objetos[indice];
     }
 }
