@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Contenedor<T> {
     private T[] objetos;
     public Contenedor() {
-        objetos = (T[]) new Object[0];
+        objetos = (T[]) new Object[1];
     }
     @Override public String toString() {
         return Arrays.toString(objetos);
@@ -20,12 +20,13 @@ public class Contenedor<T> {
         return res;
     }
     public void insertarAlPrincipio(T nuevo) {
-        if (objetos[0] == null) {
-            objetos[0] = nuevo;
-        } else {
+        if (objetos[0] != null) {
             objetos = Arrays.copyOf(objetos, objetos.length + 1);
-            System.arraycopy(objetos, 0, objetos,  1, objetos.length);
+            for (int i = objetos.length - 1; i > 0; i--) {
+                objetos[i] = objetos[i - 1];
+            }
         }
+        objetos[0] = nuevo;
     }
     public void insertarAlFinal(T nuevo) {
         if (objetos[objetos.length - 1] != null) {
@@ -33,7 +34,7 @@ public class Contenedor<T> {
         }
         objetos[objetos.length - 1] = nuevo;
     }
-    void ordenar() {
+    public void ordenar() {
         Arrays.sort(objetos);
     }
 }

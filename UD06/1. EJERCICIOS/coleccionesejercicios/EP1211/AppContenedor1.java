@@ -1,7 +1,5 @@
 package coleccionesejercicios.EP1211;
-
 import coleccionesejercicios.Contenedor;
-
 import java.util.Random;
 
 /* Óscar Fernández Pastoriza */
@@ -11,13 +9,15 @@ public class AppContenedor1 {
         Contenedor<Integer> contenedor = new Contenedor<>();
         Random random = new Random();
 
-        /*
         for (int i = 0; i < 30; i++) {
             contenedor.insertarAlPrincipio(random.nextInt(1, 11));
         }
 
-         */
-
+        System.out.println("ANTES DE ORDENAR");
+        System.out.println(contenedor);
+        System.out.println();
+        System.out.println("ORDENADO");
+        contenedor.ordenar();
         System.out.println(contenedor);
     }
 }
