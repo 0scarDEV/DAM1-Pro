@@ -47,10 +47,10 @@ public class AppFrase {
     private static void mostrarNoRepetidos(List<String> palabras) {
         for (int i = 0; i < palabras.size(); i++) {
             for (int j = 0; j < palabras.size(); j++) {
-                if (i != j) {
-                    if (!palabras.get(i).equals(palabras.get(j))) {
-                        System.out.print(palabras.get(i) + " ");
-                    }
+                if (palabras.get(i).equals(palabras.get(j))) {
+
+                } else {
+                    System.out.print(palabras.get(j) + " ");
                 }
             }
         }
