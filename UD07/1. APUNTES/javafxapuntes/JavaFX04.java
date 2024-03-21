@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Actividad4 extends Application {
+public class JavaFX04 extends Application {
     /* Actividad 4. Crear una ventana con un campo de texto y un botón que, al hacer clic, cambie el color de fondo de la ventana (o de una etiqueta) al color especificado en el campo de texto. */
     @Override
     public void start(Stage primaryStage) throws Exception {

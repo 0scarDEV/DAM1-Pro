@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-public class Actividad3 extends Application {
+public class JavaFX03 extends Application {
     /* Actividad 3. Crear una ventana con dos campos de texto y un botón que, al hacer clic, muestre la suma de los números ingresados en un tercer campo de texto o en una etiqueta. */
     @Override
     public void start(Stage primaryStage) throws Exception {

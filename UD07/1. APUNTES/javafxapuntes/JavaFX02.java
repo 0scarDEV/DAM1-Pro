@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-public class Actividad2 extends Application {
+public class JavaFX02 extends Application {
     /* Actividad 2. Crear una ventana con un campo de texto (TextField) y un botón que, al hacer clic imprima el texto por consola.
     Amplía para que imprima el texto en una etiqueta (Label) en la pantalla. */
     @Override
