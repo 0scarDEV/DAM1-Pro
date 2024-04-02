@@ -1,5 +1,6 @@
 package coleccionesejercicios.EP1226;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 /* Óscar Fernández Pastoriza */
@@ -20,6 +21,7 @@ public class RepartoAlumnos {
         System.out.println(listadoRes);
     }
     static List<List<String>> repartoAlumnos(List<String> lista, int numGrupos) {
+        Collections.shuffle(lista);
         Iterator<String> it = lista.iterator();
         List<List<String>> listaRes = new ArrayList<>();
 
