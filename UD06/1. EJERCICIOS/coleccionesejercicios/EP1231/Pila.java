@@ -12,11 +12,12 @@ public class Pila<T> extends ArrayList {
         }
         return false;
     }
-    public boolean desapilar() {
+    public T desapilar() {
         if (!lista.isEmpty()) {
+            T last = lista.getLast();
             lista.removeLast();
-            return true;
+            return last;
         }
-        return false;
+        return null;
     }
 }

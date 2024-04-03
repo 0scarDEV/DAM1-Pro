@@ -12,11 +12,12 @@ public class Cola<T> extends ArrayList {
         }
         return false;
     }
-    public boolean desencolar() {
+    public T desencolar() {
         if (!lista.isEmpty()) {
+            T first = lista.getFirst();
             lista.removeFirst();
-            return true;
+            return first;
         }
-        return false;
+        return null;
     }
 }
