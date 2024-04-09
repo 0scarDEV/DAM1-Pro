@@ -1,5 +1,4 @@
 package javafxapuntes;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,7 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+/* Óscar Fernández Pastoriza */
 public class JavaFX06 extends Application {
     /* Actividad 6. Crear una ventana con un área de texto (TextArea), un campo de texto y un botón que, al hacer clic, agregue el texto del campo de texto a la lista de elementos en el área de texto. */
     public static void main(String[] args) {

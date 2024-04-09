@@ -5,13 +5,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
+/* Óscar Fernández Pastoriza */
 public class JavaFX01 extends Application{
-
     public static void main(String[] args) {
         launch(args);
     }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Hola Mundo!!");

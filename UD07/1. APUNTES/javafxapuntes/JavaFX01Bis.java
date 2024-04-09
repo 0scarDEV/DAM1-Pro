@@ -2,10 +2,11 @@ package javafxapuntes;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.stage.Stage;/* Óscar Fernández Pastoriza */
 /**
  * JavaFX01
  */
+/* Óscar Fernández Pastoriza */
 public class JavaFX01Bis extends Application {
     static int pulsaciones = 0;
     static Button btn1;

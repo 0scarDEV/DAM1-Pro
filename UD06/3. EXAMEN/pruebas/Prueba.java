@@ -18,7 +18,7 @@ public class Prueba {
         Set<Integer> setInt = new HashSet<>();
         Set<Integer> hashInt = new TreeSet<>();
 
-        setInt.add(1);
+        setInt.add(2);
         setInt.add(2);
         setInt.add(1);
 

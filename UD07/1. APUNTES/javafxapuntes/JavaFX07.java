@@ -8,6 +8,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+/* Óscar Fernández Pastoriza */
 public class JavaFX07 extends Application {
     /* Actividad 7. Crea una aplicación que permita introducir en cuadros de texto las notas de un grupo de alumnos, una a una, y que al mismo tiempo las vaya mostrando en orden alfabético de nombre de alumno en un control de tipo lista (ListView) y que muestre también la media de la clase, la nota más alta y la más baja. */
     public static void main(String[] args) {
