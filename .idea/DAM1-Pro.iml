@@ -39,8 +39,9 @@
       <sourceFolder url="file://$MODULE_DIR$/UD06/1. EJERCICIOS" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD07/0. Pruebas" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD07/1. APUNTES" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD06/3. EXAMEN" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Java FX" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-j-8.2.01" level="project" />
     <orderEntry type="module-library" scope="TEST">
@@ -152,7 +153,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="gson-2.10.1" level="application" />
+    <orderEntry type="library" exported="" name="gson-2.10.1" level="application" />
     <orderEntry type="library" name="bin" level="project" />
   </component>
 </module>

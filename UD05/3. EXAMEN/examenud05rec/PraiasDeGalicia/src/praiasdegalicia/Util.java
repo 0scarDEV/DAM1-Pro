@@ -1,5 +1,6 @@
 package examenud05rec.PraiasDeGalicia.src.praiasdegalicia;
-import com.google.gson.Gson;
+
+/*import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,6 +12,7 @@ public class Util {
      * @param fichero Ruta del fichero JSON
      * @return Array de Praias
      */
+/*
     public static Praia[] importarPraias(String fichero) {
         Gson gson = new Gson();
 
@@ -24,6 +26,7 @@ public class Util {
      * @param filePath Ruta del fichero
      * @return Contenido del fichero como un String
      */
+/*
     public static String readFileToString(String filePath) {
         StringBuilder fileContent = new StringBuilder();
         try {
@@ -63,6 +66,7 @@ public class Util {
      * @param lon2 Longitud del punto 2
      * @return distancia en metros
      */
+/*
     public static double distancia(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371; // Radio de la Tierra
         double latDistance = Math.toRadians(lat2 - lat1);
@@ -76,4 +80,4 @@ public class Util {
         return Math.sqrt(distance);
     }
 
-}
+}*/
