@@ -1,4 +1,4 @@
-package interfacesejercicios.EP0928b_29_30;
+package coleccionesejercicios.EP1235;
 import java.time.Duration;
 import java.time.LocalDateTime;
 /* Óscar Fernández Pastoriza */
@@ -27,7 +27,6 @@ public class Jornada implements Comparable {
 
         return res;
     }
-
     @Override public String toString() {
         return "Jornada{" +
                 "dni='" + dni + '\'' +

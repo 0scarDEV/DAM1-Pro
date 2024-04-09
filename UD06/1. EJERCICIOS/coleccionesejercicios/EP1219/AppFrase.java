@@ -1,58 +1,34 @@
 package coleccionesejercicios.EP1219;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-/* Óscar Fernández Pastoriza */
+import java.util.*;
+/* ï¿½scar Fernï¿½ndez Pastoriza */
 public class AppFrase {
-    /* EP1219. Escribe un programa donde se introduzca por consola una frase que conste exclusivamente de palabras separadas por espacios. Las palabras de la frase se almacenarán en una lista. Finalmente, se mostrarán por pantalla las palabras que estén repetidas y, a continuación, las que no lo estén. */
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduzca una frase: ");
-        String frase = sc.nextLine();
+    /* EP1219. Escribe un programa donde se introduzca por consola una frase que conste exclusivamente de palabras separadas por espacios. Las palabras de la frase se almacenarï¿½n en una lista. Finalmente, se mostrarï¿½n por pantalla las palabras que estï¿½n repetidas y, a continuaciï¿½n, las que no lo estï¿½n. */
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
 
-        char[] letras = frase.toCharArray();
-        List<String> palabras = separadorPalabras(letras);
+            String entrada = sc.nextLine();
+            String[] aux = entrada.split(" ");
+            Set<String> repetidos = new TreeSet<>();
+            Set<String> noRepetidos = new TreeSet<>();
+            boolean flag;
 
-        System.out.println("\nPalabras repetidas");
-        mostrarRepetidos(palabras);
-        System.out.println("\nPalabras no repetidas");
-        mostrarNoRepetidos(palabras);
-    }
-    private static List<String> separadorPalabras(char[] letras) {
-        List<String> palabras = new ArrayList<String>();
-        String palabra = "";
+            List<String> strings = new ArrayList<>(Arrays.asList(aux));
 
-        for (char letra : letras) {
-            if (letra != ' ') {
-                palabra += letra;
-            } else {
-                palabras.add(palabra);
-                palabra = "";
-            }
-        }
-        palabras.add(palabra);
-        return palabras;
-    }
-    private static void mostrarRepetidos(List<String> palabras) {
-        for (int i = 0; i < palabras.size(); i++) {
-            for (int j = 0; j < palabras.size(); j++) {
-                if (i != j) {
-                    if (palabras.get(i).equals(palabras.get(j))) {
-                        System.out.print(palabras.get(i) + " ");
+            for (int i = 0; i < strings.size(); i++){
+                flag = false;
+                for (int j = 0; j < strings.size(); j++){
+                    if (i != j){
+                        if(strings.get(i).equals(strings.get(j))){
+                            repetidos.add(strings.get(i));
+                            flag = true;
+                        }
                     }
                 }
-            }
-        }
-    }
-    private static void mostrarNoRepetidos(List<String> palabras) {
-        for (int i = 0; i < palabras.size(); i++) {
-            for (int j = 0; j < palabras.size(); j++) {
-                if (palabras.get(i).equals(palabras.get(j))) {
-
-                } else {
-                    System.out.print(palabras.get(j) + " ");
+                if (!flag) {
+                    noRepetidos.add(strings.get(i));
                 }
             }
+            System.out.println(repetidos);
+            System.out.println(noRepetidos);
         }
     }
-}
