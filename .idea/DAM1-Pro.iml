@@ -40,7 +40,8 @@
       <sourceFolder url="file://$MODULE_DIR$/UD07/0. Pruebas" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD07/1. APUNTES" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UD06/3. EXAMEN" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UD07/2. PRACTICAS" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD07/2. EJERCICIOS" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UD07/3. PRACTICAS" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Java FX" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />

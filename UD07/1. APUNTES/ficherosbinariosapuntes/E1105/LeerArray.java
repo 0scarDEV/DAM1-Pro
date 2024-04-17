@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Arrays;
-/* Óscar Fernández Pastoriza */
+/** @author = "Óscar Fernández Pastoriza" */
 public class LeerArray {
     /* E1105. Leer una tabla de double de un archivo datos.dat. */
     public static void main(String[] args) {

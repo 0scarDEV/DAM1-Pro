@@ -2,7 +2,6 @@ package ficherosbinariosapuntes.E1108;
 import ficherosbinariosapuntes.Socio;
 import java.io.*;
 import java.util.Arrays;
-
 /** @author = "Óscar Fernández Pastoriza" */
 public class SocioFicheros {
     public static void main(String[] args) {
@@ -22,10 +21,9 @@ public class SocioFicheros {
         }
 
  */
-
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("UD07/1. APUNTES/ficherosbinariosapuntes/E1108/socios.dat"))) {
-            
-
+            byte[] n = in.readNBytes(1);
+            Socio[] sociosL = (Socio[]) in.readObject();
             System.out.println(Arrays.toString(sociosL));
         } catch (FileNotFoundException e) {
             System.out.println("Archivo no encontrado.");
