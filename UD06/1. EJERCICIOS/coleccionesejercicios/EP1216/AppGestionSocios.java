@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.*;
 /* Óscar Fernández Pastoriza */
 public class AppGestionSocios {
-    /* EP1216. Implementa una aplicación que gestione los socios de un club usando la clase Socio implementada en la Actividad E1211. En particular, se deberán ofrecer las opciones de alta, baja y modificación de los datos de un socio. Además, se listarán los socios por nombre o por antigüedad en el club. */
+    /* EP1216. Implementa una aplicación que gestione los socios de un club usando la clase ficherosbinariosapuntes.Socio implementada en la Actividad E1211. En particular, se deberán ofrecer las opciones de alta, baja y modificación de los datos de un socio. Además, se listarán los socios por nombre o por antigüedad en el club. */
     static Map<String, Socio> m = new TreeMap<>();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class AppGestionSocios {
             System.out.println("ERROR. Ya existe un socio con ese apodo.");
         } else {
             putSocio(apodo);
-            System.out.println("Socio dado de alta correctamente.");
+            System.out.println("ficherosbinariosapuntes.Socio dado de alta correctamente.");
         }
     }
     private static void darBajaSocio() {
@@ -41,7 +41,7 @@ public class AppGestionSocios {
         String apodo = sc.nextLine();
         if (m.containsKey(apodo)) {
             m.remove(apodo);
-            System.out.println("Socio eliminado correctamente.");
+            System.out.println("ficherosbinariosapuntes.Socio eliminado correctamente.");
         } else {
             System.out.println("ERROR. No existe un socio con ese apodo.");
         }
@@ -53,7 +53,7 @@ public class AppGestionSocios {
 
         if (!m.containsKey(apodo)) {
             putSocio(apodo);
-            System.out.println("Socio modificado correctamente.");
+            System.out.println("ficherosbinariosapuntes.Socio modificado correctamente.");
         } else {
             System.out.println("El socio no existe.");
         }

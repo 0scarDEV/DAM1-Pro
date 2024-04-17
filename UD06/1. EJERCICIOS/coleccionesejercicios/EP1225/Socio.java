@@ -15,7 +15,7 @@ public class Socio implements Comparable<Socio> {
         return apodo.compareTo(o.apodo);
     }
     @Override public String toString() {
-        return "Socio{" +
+        return "ficherosbinariosapuntes.Socio{" +
                 "apodo='" + apodo + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", fechaIngreso=" + fechaIngreso +

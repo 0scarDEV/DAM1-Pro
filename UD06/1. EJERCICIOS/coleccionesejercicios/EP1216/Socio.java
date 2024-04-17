@@ -4,7 +4,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 /* Óscar Fernández Pastoriza */
 public class Socio implements Comparable<Socio> {
-    /* E1211. Implementar la clase Socio, cuyos atributos son dni, nombre y fechaAlta, que deberá incluir el método equals(), la interfaz Comparable basada en el dni y el método antiguedad(). */
+    /* E1211. Implementar la clase ficherosbinariosapuntes.Socio, cuyos atributos son dni, nombre y fechaAlta, que deberá incluir el método equals(), la interfaz Comparable basada en el dni y el método antiguedad(). */
     String dni;
     String nombre;
     LocalDate fechaAlta;

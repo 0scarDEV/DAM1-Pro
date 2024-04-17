@@ -2,7 +2,7 @@ package interfacesejercicios.EP0919_23_26_27;
 import interfacesejercicios.EP0916_17_18_24_25.Lista;
 
 public class EP0927 {
-    /* EP0926. Repetir Actividad de aplicación EP0925 con elementos de tipo Socio cuyo orden natural es el de la edad. */
+    /* EP0926. Repetir Actividad de aplicación EP0925 con elementos de tipo ficherosbinariosapuntes.Socio cuyo orden natural es el de la edad. */
     public static void main(String[] args) {
         Lista l2 = new Lista();
 

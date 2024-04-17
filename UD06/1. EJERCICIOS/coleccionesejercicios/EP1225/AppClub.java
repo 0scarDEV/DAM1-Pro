@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.*;
 /* Óscar Fernández Pastoriza */
 public class AppClub {
-    /* EP1225. Implementa una aplicación que gestione un club donde se identifica a los socios por un apodo personal y único. De cada socio, además del apodo, se guarda el nombre y su fecha de ingreso en el club. Utiliza un mapa donde las claves serán los apodos y los valores, objetos de la clase Socio. Los datos se guardarán en un fichero llamado “club.dat”, de donde se leerá el mapa al arrancar y donde se volverá a guardar actualizado al salir. Las operaciones se mostrarán en un menú que tendrá las siguientes opciones:
+    /* EP1225. Implementa una aplicación que gestione un club donde se identifica a los socios por un apodo personal y único. De cada socio, además del apodo, se guarda el nombre y su fecha de ingreso en el club. Utiliza un mapa donde las claves serán los apodos y los valores, objetos de la clase ficherosbinariosapuntes.Socio. Los datos se guardarán en un fichero llamado “club.dat”, de donde se leerá el mapa al arrancar y donde se volverá a guardar actualizado al salir. Las operaciones se mostrarán en un menú que tendrá las siguientes opciones:
     * 1. Alta socio.
     * 2. Baja socio.
     * 3. Modificación socio.
@@ -41,7 +41,7 @@ public class AppClub {
             System.out.println("ERROR. Ya existe un socio con ese apodo.");
         } else {
             putSocio(apodo);
-            System.out.println("Socio dado de alta correctamente.");
+            System.out.println("ficherosbinariosapuntes.Socio dado de alta correctamente.");
         }
     }
     private static void darBajaSocio() {
@@ -50,7 +50,7 @@ public class AppClub {
         String apodo = sc.nextLine();
         if (m.containsKey(apodo)) {
             m.remove(apodo);
-            System.out.println("Socio eliminado correctamente.");
+            System.out.println("ficherosbinariosapuntes.Socio eliminado correctamente.");
         } else {
             System.out.println("ERROR. No existe un socio con ese apodo.");
         }
@@ -62,7 +62,7 @@ public class AppClub {
 
         if (!m.containsKey(apodo)) {
             putSocio(apodo);
-            System.out.println("Socio modificado correctamente.");
+            System.out.println("ficherosbinariosapuntes.Socio modificado correctamente.");
         } else {
             System.out.println("El socio no existe.");
         }

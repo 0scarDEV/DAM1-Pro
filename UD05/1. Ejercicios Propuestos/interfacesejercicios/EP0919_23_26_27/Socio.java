@@ -31,12 +31,12 @@ public class Socio implements Comparable {
     public boolean equals(Object obj) {
         return id == ((Socio) obj).id;
     }
-    /* EP0919. Implementar la interfaz Comparable en la clase Socio para que el criterio de ordenación natural sea de menor a mayor edad. */
+    /* EP0919. Implementar la interfaz Comparable en la clase ficherosbinariosapuntes.Socio para que el criterio de ordenación natural sea de menor a mayor edad. */
     int edad;
 /*
     @Override
     public int compareTo(Object o) {
-        Socio otro = (Socio) o;
+        ficherosbinariosapuntes.Socio otro = (ficherosbinariosapuntes.Socio) o;
         int res = nombre.compareTo(otro.nombre);
         if (res == 0) {
             res = id - otro.id;
@@ -48,7 +48,7 @@ public class Socio implements Comparable {
 /*
     @Override
     public int compareTo(Object o) {
-        Socio otro = (Socio) o;
+        ficherosbinariosapuntes.Socio otro = (ficherosbinariosapuntes.Socio) o;
         int res = this.edad - otro.edad;
         if (res == 0) {
             res = id - otro.id;
