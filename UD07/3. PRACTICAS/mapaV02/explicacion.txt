@@ -1,0 +1,6 @@
+Generé un método que cuenta el número de casillas vacías.
+Seguidamente, generé un nuevo mapa que almacena con el valor "P" las posiciones donde se encuentran los premios.
+
+En el mismo manejador de eventos de mover al personaje, implementé con varias condiciones un contador de puntuación.
+
+Al final, se muestra por la consola de comandos la puntuación total obtenida y el tiempo tardado (calculado con la clase Duration de java.time)

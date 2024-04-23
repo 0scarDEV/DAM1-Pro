@@ -1,4 +1,4 @@
-package mapa;
+package mapaV01;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

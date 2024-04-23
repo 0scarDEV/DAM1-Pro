@@ -1,6 +1,5 @@
-package mapa;
+package mapaV01;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /* Óscar Fernández Pastoriza */

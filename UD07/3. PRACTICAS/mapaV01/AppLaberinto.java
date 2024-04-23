@@ -1,4 +1,4 @@
-package mapa;
+package mapaV01;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
