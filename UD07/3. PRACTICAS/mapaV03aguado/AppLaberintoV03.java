@@ -1,9 +1,7 @@
-package mapaV03;
-import java.io.*;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.time.Duration;
+package mapaV03aguado;
+
 import java.time.LocalTime;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -23,8 +21,8 @@ public class AppLaberintoV03 extends Application {
     PersonajeFX personaje;
     MenuBar menuBar;
     Label barraEstado;
-    Image IMAGE_CARNE = new Image("mapaV03/img/carne.jpg");
-    Image IMAGE_PERSONAJE = new Image("mapaV03/img/personaje.png");
+    Image IMAGE_CARNE = new Image("ud7/javafxpracticas/mapaV03/img/carne.jpg");
+    Image IMAGE_PERSONAJE = new Image("ud7/javafxpracticas/mapaV03/img/personaje.png");
 
     // Atributos principales del juego
     int platosRecogidos = 0;
@@ -69,10 +67,10 @@ public class AppLaberintoV03 extends Application {
 
     /**
      * Inicializa un nuevo juego.
-     *
+     * 
      * @param primaryStage Escenario principal
      */
-    private void iniciarJuego(Stage primaryStage) {
+    private void iniciarJuego(Stage stage) {
 
         // Crear y dibujar personaje
         personaje = new PersonajeFX(mapa.getFilInicio(), mapa.getColInicio());
@@ -89,7 +87,7 @@ public class AppLaberintoV03 extends Application {
         platosRecogidos = 0;
 
         // NUEVO: Menú y barra de estado
-        menuBar = crearMenuBar(primaryStage);
+        menuBar = crearMenuBar(stage);
         barraEstado = new Label("Platos recogidos: " + platosRecogidos);
 
         Scene scene = new Scene(new VBox(menuBar, mapa.gridPane, barraEstado));
@@ -115,11 +113,11 @@ public class AppLaberintoV03 extends Application {
             if (mapa.esFin(f, c)) {
                 mostrarFinJuego();
                 // Cerrar la aplicación
-                primaryStage.close();
+                stage.close();
             }
         });
 
-        primaryStage.setScene(scene);
+        stage.setScene(scene);
 
     }
 
@@ -149,11 +147,7 @@ public class AppLaberintoV03 extends Application {
         menuItemCargarMapa.setOnAction(e -> cargarMapa(primaryStage));
 
         MenuItem menuItemCargarPartida = new MenuItem("Cargar Partida");
-        menuItemCargarPartida.setOnAction(e -> cargarPartida(primaryStage));
-
         MenuItem menuItemGuardarPartida = new MenuItem("Guardar Partida");
-        menuItemGuardarPartida.setOnAction(e -> guardarPartida(primaryStage));
-
         Menu menuArchivo = new Menu("Archivo");
         menuArchivo.getItems().addAll(menuItemCargarMapa, menuItemCargarPartida, menuItemGuardarPartida);
         MenuItem menuItemAcercaDe = new MenuItem("Acerca de...");
@@ -161,113 +155,6 @@ public class AppLaberintoV03 extends Application {
         Menu menuAyuda = new Menu("Ayuda");
         menuAyuda.getItems().add(menuItemAcercaDe);
         return new MenuBar(menuArchivo, menuAyuda);
-    }
-
-    private void cargarPartida(Stage primaryStage) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Abrir mapa");
-        String fichero = fileChooser.showOpenDialog(primaryStage).getAbsolutePath();
-
-        try (FileInputStream fs = new FileInputStream(fichero)) {
-            ObjectInputStream in = new ObjectInputStream(fs);
-
-            // datos del mapa
-            mapa.mapa = (char[][]) in.readObject();
-            mapa.numFil = in.readInt();
-            mapa.numCol = in.readInt();
-            mapa.filInicio = in.readInt();
-            mapa.colInicio = in.readInt();
-            mapa.filFin = in.readInt();
-            mapa.colFin = in.readInt();
-
-            // datos del personaje
-            personaje.colJugador = in.readInt();
-            personaje.filJugador = in.readInt();
-            personaje.color = (String) in.readObject();
-
-            // Datos de la partida
-            casillasConCarne = (boolean[][]) in.readObject();
-            platosRecogidos = in.readInt();
-
-            // Añadimos el tiempo transcurrido.
-            Duration duracionAnhadir = (Duration) in.readObject();
-            horaInicio = LocalTime.from(LocalTime.now().plusSeconds(duracionAnhadir.getSeconds()));
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        mapa.gridPane();
-        personaje.setImagen(IMAGE_PERSONAJE);
-        mapa.dibujarPersonaje(personaje);
-        mapa.dibujarImagen(IMAGE_CARNE, casillasConCarne);
-
-        // NUEVO: Menú y barra de estado
-        menuBar = crearMenuBar(primaryStage);
-        barraEstado = new Label("Platos recogidos: " + platosRecogidos);
-
-        Scene scene = new Scene(new VBox(menuBar, mapa.gridPane, barraEstado));
-
-        scene.addEventHandler(KeyEvent.KEY_PRESSED, e -> {
-            // Mueve el personaje en la dirección indicada por la tecla pulsada
-            mapa.moverPersonaje(personaje, e.getCode());
-
-            int f = personaje.filJugador;
-            int c = personaje.colJugador;
-            System.out.println("Personaje en: " + f + ", " + c);
-
-            // Comprueba si el personaje está en una casilla con carne
-            if (casillasConCarne[f][c]) {
-                System.out.println("¡Has recogido un plato de carne en " + f + ", " + c);
-                platosRecogidos++;
-                casillasConCarne[f][c] = false;
-                // NUEVO: Actualiza la barra de estado
-                barraEstado.setText("Platos recogidos: " + platosRecogidos);
-            }
-
-            // Comprueba si el personaje ha llegado al final del laberinto
-            if (mapa.esFin(f, c)) {
-                mostrarFinJuego();
-                // Cerrar la aplicación
-                primaryStage.close();
-            }
-        });
-
-        primaryStage.setScene(scene);
-    }
-
-    private void guardarPartida(Stage primaryStage) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Cargar partida");
-        String fichero = fileChooser.showSaveDialog(primaryStage).getAbsolutePath();
-        try (FileOutputStream fs = new FileOutputStream(fichero)) {
-            ObjectOutputStream out = new ObjectOutputStream(fs);
-
-            // datos del mapa
-            out.writeObject(mapa.mapa);
-            out.writeInt(mapa.numFil);
-            out.writeInt(mapa.numCol);
-            out.writeInt(mapa.filInicio);
-            out.writeInt(mapa.colInicio);
-            out.writeInt(mapa.filFin);
-            out.writeInt(mapa.colFin);
-
-            // datos del personaje
-            out.writeInt(personaje.colJugador);
-            out.writeInt(personaje.filJugador);
-            out.writeObject(personaje.color);
-
-            // Datos de la partida
-            out.writeObject(casillasConCarne);
-            out.writeInt(platosRecogidos);
-            horaFin = LocalTime.now();
-            out.writeObject(Duration.between(horaInicio, horaFin));
-
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -312,7 +199,7 @@ public class AppLaberintoV03 extends Application {
         while (numPlatos > 0) {
             int f = (int) (Math.random() * m.numFil);
             int c = (int) (Math.random() * m.numCol);
-            if (m.esVacia(f, c) && !casillasConCarne[f][c]) {
+            if (m.esVacia(f, c) && casillasConCarne[f][c] == false) {
                 casillasConCarne[f][c] = true;
                 numPlatos--;
             }

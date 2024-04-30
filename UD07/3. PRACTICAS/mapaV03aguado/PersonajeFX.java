@@ -1,10 +1,8 @@
-package mapaV03;
+package mapaV03aguado;
 
 import javafx.scene.image.Image;
 
-import java.io.Serializable;
-
-public class PersonajeFX implements Serializable {
+public class PersonajeFX {
     int filJugador;
     int colJugador;
 

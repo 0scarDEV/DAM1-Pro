@@ -32,11 +32,12 @@ public class AppController {
     void abrirArchivo(ActionEvent event) {
         String rutaInicial = ".";
 
+        /*
         // Crea y muestra una ventana FileChooser para elegir el fichero y obtiene un
         // String con la ruta completa.
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(rutaInicial));
-        //File fichero = fileChooser.showOpenDialog(primaryStage);
+        File fichero = fileChooser.showOpenDialog(primaryStage);
         String nombreFichero = fichero.getAbsolutePath();
 
         try (BufferedReader in = new BufferedReader(new FileReader(nombreFichero))){
@@ -44,6 +45,8 @@ public class AppController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
+         */
     }
     @FXML
     void eliminarEmpresa(ActionEvent event) {

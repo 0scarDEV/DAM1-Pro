@@ -1,4 +1,4 @@
-package mapaV03;
+package mapaV03aguado;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
