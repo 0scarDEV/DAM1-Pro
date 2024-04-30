@@ -105,8 +105,6 @@ public class AppLaberintoV03 extends Application {
 
     private void cargarPartida(Stage primaryStage) {
         try (BufferedReader in = new BufferedReader(new FileReader("ultimaPartidaGuardada.txt"))){
-
-
             String linea = in.readLine();
             int i = 0;
             while (linea != null) {
