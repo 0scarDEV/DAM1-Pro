@@ -157,7 +157,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="bin" level="project" />
-    <orderEntry type="library" name="jaxb-api" level="application" />
     <orderEntry type="library" name="gson-2.10.1" level="application" />
+    <orderEntry type="library" name="jaxb-api" level="application" />
   </component>
 </module>

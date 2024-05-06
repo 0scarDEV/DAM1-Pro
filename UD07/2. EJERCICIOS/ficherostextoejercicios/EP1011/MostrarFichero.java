@@ -1,8 +1,8 @@
-package ficherosejercicios.EP1011;
+package ficherostextoejercicios.EP1011;
 
 import java.io.*;
 import java.util.Scanner;
-
+/** @author = Óscar Fernández Pastoriza */
 public class MostrarFichero {
     /** EP1011. Escribe un programa que solicite al usuario el nombre de un fichero de texto y muestre su contenido en pantalla. Si no se proporciona ningún nombre de fichero, la aplicación utilizará por defecto prueba.txt. */
     public static void main(String[] args) {
