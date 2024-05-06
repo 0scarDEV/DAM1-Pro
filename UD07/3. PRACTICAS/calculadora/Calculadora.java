@@ -8,8 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-
 import java.io.*;
 
 public class Calculadora extends Application {
@@ -17,61 +17,92 @@ public class Calculadora extends Application {
     Double valorRes;
     Label lblResultado = new Label("Resultado: ");
     Character operacion = null;
+    String txtHistorial = "";
+    Label lblHistorial = new Label(txtHistorial);
 
-    EventHandler<ActionEvent> asignarValor = new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-            Button boton = (Button) event.getSource();
-            if (operacion == null) {
-                operador1 += boton.getText();
-            } else {
-                operador2 += boton.getText();
-            }
+    EventHandler<ActionEvent> asignarValor = event -> {
+        Button boton = (Button) event.getSource();
+        if (operacion == null) {
+            operador1 += boton.getText();
+        } else {
+            operador2 += boton.getText();
         }
+        txtHistorial += boton.getText();
+        lblHistorial.setText(txtHistorial);
     };
     EventHandler<ActionEvent> asginarOperacion = event -> {
         Button boton = (Button) event.getSource();
         switch (boton.getText()) {
-            case "+" -> operacion = '+';
-            case "-" -> operacion = '-';
-            case "*" -> operacion = '*';
-            case "/" -> operacion = '/';
+            case "+" -> {
+                if (operador2.isEmpty() && operacion == null) {
+                    operacion = '+';
+                    txtHistorial += " " + operacion + " ";
+                    lblHistorial.setText(txtHistorial);
+                }
+            }
+            case "-" -> {
+                if (operador2.isEmpty() && operacion == null) {
+                    operacion = '-';
+                    txtHistorial += " " + operacion + " ";
+                    lblHistorial.setText(txtHistorial);
+                }
+            }
+            case "*" -> {
+                if (operador2.isEmpty() && operacion == null) {
+                    operacion = '*';
+                    txtHistorial += " " + operacion + " ";
+                    lblHistorial.setText(txtHistorial);
+                }
+            }
+            case "/" -> {
+                if (operador2.isEmpty() && operacion == null) {
+                    operacion = '/';
+                    txtHistorial += " " + operacion + " ";
+                    lblHistorial.setText(txtHistorial);
+                }
+            }
         }
     };
-    EventHandler<ActionEvent> operar = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> operar = new EventHandler<>() {
         @Override
         public void handle(ActionEvent event) {
-            Double op1 = Double.parseDouble(operador1);
-            Double op2 = Double.parseDouble(operador2);
-            switch (operacion) {
-                case '+' -> valorRes = op1 + op2;
-                case '-' -> valorRes = op1 - op2;
-                case '*' -> valorRes = op1 * op2;
-                case '/' -> valorRes = op1 / op2;
-            }
-            lblResultado.setText("Resultado: " + valorRes);
+            if (!operador2.isBlank()) {
+                Double op1 = Double.parseDouble(operador1);
+                Double op2 = Double.parseDouble(operador2);
+                switch (operacion) {
+                    case '+' -> valorRes = op1 + op2;
+                    case '-' -> valorRes = op1 - op2;
+                    case '*' -> valorRes = op1 * op2;
+                    case '/' -> valorRes = op1 / op2;
+                }
+                lblResultado.setText("Resultado: " + valorRes);
 
-            try (BufferedWriter out = new BufferedWriter(new FileWriter("log.txt",true))) {
-                out.write(operador1 + " " + operacion + " " + operador2 + " = " + valorRes);
-                out.newLine();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+                try (BufferedWriter out = new BufferedWriter(new FileWriter("log.txt", true))) {
+                    out.write(operador1 + " " + operacion + " " + operador2 + " = " + valorRes);
+                    out.newLine();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
-            operador1 = String.valueOf(valorRes);
-            operador2 = "";
-            operacion = null;
+                operador1 = String.valueOf(valorRes);
+
+                txtHistorial += " = " + operador1;
+                lblHistorial.setText(txtHistorial);
+
+                operador2 = "";
+                operacion = null;
+            } else {
+                System.out.println("ERROR. Debes introducir un segundo operador primero.");
+                lblHistorial.setText("ERROR. Debes introducir un segundo operador primero.");
+            }
         }
     };
-    EventHandler<ActionEvent> decimar = new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-            Button boton = (Button) event.getSource();
-            if (operacion == null && !operador1.endsWith(".")) {
-                operador1 += boton.getText();
-            } else if (!operador2.endsWith(".")) {
-                operador2 += boton.getText();
-            }
+    EventHandler<ActionEvent> decimar = event -> {
+        Button boton = (Button) event.getSource();
+        if (operacion == null && !operador1.endsWith(".")) {
+            operador1 += boton.getText();
+        } else if (!operador2.endsWith(".")) {
+            operador2 += boton.getText();
         }
     };
 
@@ -81,6 +112,20 @@ public class Calculadora extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        lblHistorial.setMinSize(300,50);
+        lblHistorial.setTextAlignment(TextAlignment.RIGHT);
+
+        Button btnClear = new Button("CE");
+        btnClear.setOnAction(event -> {
+            operador1 = "";
+            operador2 = "";
+            operacion = null;
+            lblResultado.setText("Resultado: ");
+            txtHistorial = "";
+            lblHistorial.setText(txtHistorial);
+        });
+        btnClear.setMinSize(100, 50);
+        HBox fila0 = new HBox(btnClear, lblHistorial);
 
         Button btnSiete = new Button("7");
         btnSiete.setOnAction(asignarValor);
@@ -139,9 +184,34 @@ public class Calculadora extends Application {
         btnIgual.setMinSize(100, 50);
         HBox fila4 = new HBox(btnDiv, btnCero, btnPunto, btnIgual);
 
-        VBox vBox = new VBox(fila1, fila2, fila3, fila4, lblResultado);
+        VBox vBox = new VBox(fila0, fila1, fila2, fila3, fila4, lblResultado);
 
-        primaryStage.setScene(new Scene(vBox));
+        Scene scene = new Scene(vBox);
+        scene.onKeyPressedProperty().set(event -> {
+            switch (event.getCode()) {
+                case PLUS, ADD -> btnSumar.fire();
+                case MINUS, SUBTRACT -> btnRestar.fire();
+                case MULTIPLY, ASTERISK -> btnMulti.fire();
+                case DIVIDE, SLASH -> btnDiv.fire();
+                case DIGIT0, NUMPAD0 -> btnCero.fire();
+                case DIGIT1, NUMPAD1 -> btnUno.fire();
+                case DIGIT2, NUMPAD2 -> btnDos.fire();
+                case DIGIT3, NUMPAD3 -> btnTres.fire();
+                case DIGIT4, NUMPAD4 -> btnCuatro.fire();
+                case DIGIT5, NUMPAD5 -> btnCinco.fire();
+                case DIGIT6, NUMPAD6 -> btnSeis.fire();
+                case DIGIT7, NUMPAD7 -> btnSiete.fire();
+                case DIGIT8, NUMPAD8 -> btnOcho.fire();
+                case DIGIT9, NUMPAD9 -> btnNueve.fire();
+                case PERIOD, COMMA -> btnPunto.fire();
+                case DELETE, BACK_SPACE-> btnClear.fire();
+                case ENTER, INSERT -> btnIgual.fire();
+            }
+        });
+        vBox.requestFocus();
+
+        primaryStage.setResizable(false);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
