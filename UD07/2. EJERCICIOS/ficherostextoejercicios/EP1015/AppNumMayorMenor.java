@@ -12,7 +12,7 @@ public class AppNumMayorMenor {
         int numMin = 0;
         int i = 0;
 
-        try (Scanner sc = new Scanner(new FileReader("UD07/2. EJERCICIOS/ficherostextoejercicios/EP1015/numeros.txt"))) {
+        try (Scanner sc = new Scanner(new FileReader("ficherostextoejercicios/EP1015/numeros.txt"))) {
             while (sc.hasNextInt()) {
                 int valor = sc.nextInt();
                 if (i == 0) {

@@ -11,7 +11,7 @@ public class MostrarFichero {
         String nombre = sc.nextLine();
 
         if (nombre.isEmpty()) {
-            nombre = "UD07\\2. EJERCICIOS\\ficherosejercicios\\prueba.txt";
+            nombre = "ficherosejercicios\\prueba.txt";
         }
 
         try (BufferedReader in = new BufferedReader(new FileReader(nombre))) {

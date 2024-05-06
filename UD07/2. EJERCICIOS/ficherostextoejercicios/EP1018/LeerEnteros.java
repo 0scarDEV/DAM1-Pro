@@ -1,7 +1,9 @@
 package ficherostextoejercicios.EP1018;
 
 import java.util.Arrays;
-
+/** @author = "Óscar Fernández Pastoriza"
+ * EP1018. Escribe la función Integer[] leerEnteros(String texto), a la que se le pasa una cadena y devuelve una tabla con todos los enteros que aparecen en ella.
+ * */
 public class LeerEnteros {
     public static Integer[] leerEnteros(String texto) {
         Integer[] t = new Integer[0];

@@ -5,6 +5,9 @@ import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+/** @author = "Óscar Fernández Pastoriza"
+ * EP1016. Un libro de firmas es útil para recoger los nombres de todas las personas que han pasado por un determinado lugar. Crea una aplicación que permita mostrar el libro de firmas e insertar un nuevo nombre (comprobando que no se encuentre repetido). Llamaremos al fichero firmas.txt.
+ * */
 public class LibroDeFirmas {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -31,7 +34,7 @@ public class LibroDeFirmas {
 
     private static Set<String> leerFirmas() {
         Set<String> firmas = new LinkedHashSet<>();
-        try (BufferedReader in = new BufferedReader(new FileReader("UD07/2. EJERCICIOS/ficherostextoejercicios/EP1016/firmas.txt"))) {
+        try (BufferedReader in = new BufferedReader(new FileReader("ficherostextoejercicios/EP1016/firmas.txt"))) {
             while (in.ready()) {
                 firmas.add(in.readLine());
             }
@@ -52,7 +55,7 @@ public class LibroDeFirmas {
         String firma = sc.nextLine();
 
         if (!firmas.contains(firma)) {
-            try (BufferedWriter out = new BufferedWriter(new FileWriter("UD07/2. EJERCICIOS/ficherostextoejercicios/EP1016/firmas.txt", true))) {
+            try (BufferedWriter out = new BufferedWriter(new FileWriter("ficherostextoejercicios/EP1016/firmas.txt", true))) {
                 out.write("\n" + firma);
             } catch (IOException e) {
                 throw new RuntimeException(e);

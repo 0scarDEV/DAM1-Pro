@@ -15,7 +15,7 @@ public class RecolectorNombreEdad {
         System.out.println("Introduce tu edad: ");
         info += "(" + sc.nextLine() + ")";
 
-        try (BufferedWriter out = new BufferedWriter(new FileWriter("UD07/2. EJERCICIOS/ficherosejercicios/EP1012/datos.txt", true))) {
+        try (BufferedWriter out = new BufferedWriter(new FileWriter("ficherosejercicios/EP1012/datos.txt", true))) {
             out.write(info);
             out.newLine();
         } catch (IOException e) {

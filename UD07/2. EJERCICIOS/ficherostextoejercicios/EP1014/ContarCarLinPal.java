@@ -11,7 +11,7 @@ public class ContarCarLinPal {
         int contadorLineas = 0;
         int contadorPalabras = 0;
 
-        try (Scanner sc = new Scanner(new FileReader("UD07/2. EJERCICIOS/ficherostextoejercicios/EP1014/carta.txt"))) {
+        try (Scanner sc = new Scanner(new FileReader("ficherostextoejercicios/EP1014/carta.txt"))) {
             while (sc.hasNext()) {
                 String palabra = sc.next();
                 contadorCaracteres += palabra.length();

@@ -11,7 +11,7 @@ public class AppListas {
         ArrayList<Integer> lista1 = new ArrayList<>();
         ArrayList<Integer> lista2 = new ArrayList<>();
 
-        try (BufferedReader in = new BufferedReader(new FileReader("UD07/2. EJERCICIOS/ficherostextoejercicios/EP1013/lista1"))) {
+        try (BufferedReader in = new BufferedReader(new FileReader("ficherostextoejercicios/EP1013/lista1"))) {
             String linea;
             while (in.ready()) {
                 linea = in.readLine();
@@ -25,7 +25,7 @@ public class AppListas {
             throw new RuntimeException(e);
         }
 
-        try (BufferedReader in = new BufferedReader(new FileReader("UD07/2. EJERCICIOS/ficherostextoejercicios/EP1013/lista2"))) {
+        try (BufferedReader in = new BufferedReader(new FileReader("ficherostextoejercicios/EP1013/lista2"))) {
             String linea;
             while (in.ready()) {
                 linea = in.readLine();
@@ -46,7 +46,7 @@ public class AppListas {
 
         Collections.sort(listaTotal);
 
-        try (BufferedWriter out = new BufferedWriter(new FileWriter("UD07/2. EJERCICIOS/ficherostextoejercicios/EP1013/listaTotal"))) {
+        try (BufferedWriter out = new BufferedWriter(new FileWriter("ficherostextoejercicios/EP1013/listaTotal"))) {
             for (Integer integer : listaTotal) {
                 out.write(integer + "\n");
             }
