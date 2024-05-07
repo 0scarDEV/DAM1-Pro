@@ -3,8 +3,8 @@ package ficherostextoejercicios.EP1013;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
-/** @author = Óscar Fernández Pastoriza
- * EP1013. Implementa un programa que lea dos listas de números enteros no ordenados desde dos archivos con un número por linea, los reúna en una lista única y los guarde en orden creciente en un tercer archivo, de nuevo uno por línea.
+/** @author Óscar Fernández Pastoriza
+ * @description EP1013. Implementa un programa que lea dos listas de números enteros no ordenados desde dos archivos con un número por linea, los reúna en una lista única y los guarde en orden creciente en un tercer archivo, de nuevo uno por línea.
  * */
 public class AppListas {
     public static void main(String[] args) {

@@ -3,8 +3,8 @@ package ficherostextoejercicios.EP1015;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
-/** @author = Óscar Fernández Pastoriza
- * EP1015. En el archivo numeros.txt disponemos de una serie de números (uno por cada línea). Diseña un programa que procese el fichero y nos muestre el menor y el mayor.
+/** @author Óscar Fernández Pastoriza
+ * @description EP1015. En el archivo numeros.txt disponemos de una serie de números (uno por cada línea). Diseña un programa que procese el fichero y nos muestre el menor y el mayor.
  * */
 public class AppNumMayorMenor {
     public static void main(String[] args) {

@@ -3,9 +3,10 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-/** @author = Óscar Fernández Pastoriza */
+
+/** @author Óscar Fernández Pastoriza
+ * @description EP1012. Diseña una aplicación que pida al usuario su nombre y edad. Estos datos deben guardarse en el fichero datos.txt. Si este fichero existe, deben añadirse al final en una nueva línea, y en caso de no existir, debe crearse. */
 public class RecolectorNombreEdad {
-    /** EP1012. Diseña una aplicación que pida al usuario su nombre y edad. Estos datos deben guardarse en el fichero datos.txt. Si este fichero existe, deben añadirse al final en una nueva línea, y en caso de no existir, debe crearse. */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

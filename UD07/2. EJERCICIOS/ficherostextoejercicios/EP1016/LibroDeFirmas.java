@@ -5,8 +5,8 @@ import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-/** @author = "Óscar Fernández Pastoriza"
- * EP1016. Un libro de firmas es útil para recoger los nombres de todas las personas que han pasado por un determinado lugar. Crea una aplicación que permita mostrar el libro de firmas e insertar un nuevo nombre (comprobando que no se encuentre repetido). Llamaremos al fichero firmas.txt.
+/** @author Óscar Fernández Pastoriza
+ * @description EP1016. Un libro de firmas es útil para recoger los nombres de todas las personas que han pasado por un determinado lugar. Crea una aplicación que permita mostrar el libro de firmas e insertar un nuevo nombre (comprobando que no se encuentre repetido). Llamaremos al fichero firmas.txt.
  * */
 public class LibroDeFirmas {
     public static void main(String[] args) {

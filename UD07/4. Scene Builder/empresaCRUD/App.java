@@ -1,4 +1,4 @@
-package empresaCRUD;
+package EmpresaCRUD;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
