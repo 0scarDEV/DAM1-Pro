@@ -1,4 +1,4 @@
-package EmpresaCRUD;
+package empresaCRUD;
 
 import java.util.Objects;
 

@@ -159,5 +159,6 @@
     <orderEntry type="library" name="bin" level="project" />
     <orderEntry type="library" name="gson-2.10.1" level="application" />
     <orderEntry type="library" name="jaxb-api" level="application" />
+    <orderEntry type="library" name="bcrypt-0.10.2" level="application" />
   </component>
 </module>
