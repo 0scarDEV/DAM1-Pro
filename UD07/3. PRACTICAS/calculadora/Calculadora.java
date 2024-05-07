@@ -19,6 +19,7 @@ public class Calculadora extends Application {
     Character operacion = null;
     String txtHistorial = "";
     Label lblHistorial = new Label(txtHistorial);
+    VBox vBox;
 
     EventHandler<ActionEvent> asignarValor = event -> {
         Button boton = (Button) event.getSource();
@@ -29,6 +30,7 @@ public class Calculadora extends Application {
         }
         txtHistorial += boton.getText();
         lblHistorial.setText(txtHistorial);
+        vBox.requestFocus();
     };
     EventHandler<ActionEvent> asginarOperacion = event -> {
         Button boton = (Button) event.getSource();
@@ -62,6 +64,7 @@ public class Calculadora extends Application {
                 }
             }
         }
+        vBox.requestFocus();
     };
     EventHandler<ActionEvent> operar = new EventHandler<>() {
         @Override
@@ -95,6 +98,7 @@ public class Calculadora extends Application {
                 System.out.println("ERROR. Debes introducir un segundo operador primero.");
                 lblHistorial.setText("ERROR. Debes introducir un segundo operador primero.");
             }
+            vBox.requestFocus();
         }
     };
     EventHandler<ActionEvent> decimar = event -> {
@@ -104,6 +108,7 @@ public class Calculadora extends Application {
         } else if (!operador2.endsWith(".")) {
             operador2 += boton.getText();
         }
+        vBox.requestFocus();
     };
 
     public static void main(String[] args) {
@@ -184,7 +189,7 @@ public class Calculadora extends Application {
         btnIgual.setMinSize(100, 50);
         HBox fila4 = new HBox(btnDiv, btnCero, btnPunto, btnIgual);
 
-        VBox vBox = new VBox(fila0, fila1, fila2, fila3, fila4, lblResultado);
+        vBox = new VBox(fila0, fila1, fila2, fila3, fila4, lblResultado);
 
         Scene scene = new Scene(vBox);
         scene.onKeyPressedProperty().set(event -> {
